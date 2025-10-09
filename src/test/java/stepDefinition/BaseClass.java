@@ -1,9 +1,12 @@
 package stepDefinition;
 
+import pageobjects.ArrayPage;
 import pageobjects.LoginPage;
+import utilities.DriverFactory;
 
 public class BaseClass {
 	
-		LoginPage loginPage = new LoginPage();
+		
+		//ArrayPage arrayPage = new ArrayPage(Hooks.driver);
 
 }

@@ -7,12 +7,14 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
+
+
 public class DriverFactory {
 
-	static WebDriver driver;
+	//private static ThreadLocal<WebDriver> threadDriver = new ThreadLocal<>();
+	private static WebDriver driver;
 
-	public static void inItBrowser() {
-
+	public static WebDriver inItBrowser() {
 		String browserName = ConfigReader.getProperty("browser");
 
 		if (browserName.equalsIgnoreCase("Edge")) {
@@ -36,18 +38,24 @@ public class DriverFactory {
 
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
-
-	}
-
-	public static WebDriver getDriver() {
+		//threadDriver.set(driver);
 		return driver;
-
 	}
 
+	/*public static WebDriver getDriver() {
+		WebDriver driver = threadDriver.get();
+		if (driver == null) {
+            driver = new EdgeDriver(); // Or WebDriverManager setup
+            driver.manage().window().maximize();
+            threadDriver.set(driver);
+        }
+		return driver;
+	}*/
+	
 	public static void quitDriver() {
 		if (driver != null) {
 			driver.quit();
-
+			//threadDriver.remove();
 		}
 	}
 }

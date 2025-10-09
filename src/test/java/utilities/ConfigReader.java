@@ -32,29 +32,6 @@ public class ConfigReader {
 			throw new RuntimeException("Config file is not loaded");
 		}
 		return prop.getProperty(key);
+	}
 
-		
-	
-		
-		// String configFilePath = "config/config.properties";
-		/*
-		 * try { input = new FileInputStream(configFilePath); } catch
-		 * (FileNotFoundException e) { // TODO Auto-generated catch block
-		 * e.printStackTrace(); throw new
-		 * RuntimeException("config.properties not found at config file path " +
-		 * configFilePath); } try { properties.load(input); } catch (IOException e) { //
-		 * TODO Auto-generated catch block e.printStackTrace(); } }
-		 * 
-		 * public String getBrowserName() { return properties.getProperty("browser"); }
-		 * 
-		 * public String getURL() { return properties.getProperty("URL");
-		 */
-	}
-	
-	public static void main(String[] args) {
-		loadProperties();
-		String browserName =getProperty("browser");
-		System.out.println(browserName);
-		
-	}
 }
