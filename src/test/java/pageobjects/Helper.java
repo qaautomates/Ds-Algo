@@ -20,15 +20,23 @@ public class Helper {
 		
 	}
 	
-	public void clickGetStarted() {
-		try {
-			Thread.sleep(2000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		System.out.println("Driver instance: " + driver);
+	public void homeGetStartedBtn() {
+		
 		driver.findElement(By.xpath("//button[contains(text(),'Get Started')]")).click();
+	}
+	
+	public void dataStructuresGetStarted(String module) {
+		driver.findElement(By.xpath("//a[@href='"+ module +"']")).click();
+	}
+	
+	public void clickLink(String link) {
+		driver.findElement(By.xpath("//a[text()='" + link +"']")).click();
+	}
+
+	public String getUrl() {
+		
+		return driver.getCurrentUrl();
+		
 	}
 
 }

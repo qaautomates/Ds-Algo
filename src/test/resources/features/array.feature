@@ -2,8 +2,6 @@ Feature: Array data structure
 
 Background: 
 Given User logged in to the ds algo portal and on home page
-
-@test
 Scenario: Verify that user is able to navigate to Array datastructure page from Get Started Link 
 When The user clicks the Get Started button in Array Panel
 Then The user should navigate to Array Data Structure Page
@@ -12,13 +10,6 @@ Scenario: Verify that user is able to navigate to Array datastructure page from 
 When The user select Array item from the drop down menu
 Then The user should be directed to Array Data Structure Page
 
-@test1
-Scenario: Verify that user is able to navigate to Arrays in Python page 
-Given  The user is in the Array page
-When The user clicks Arrays in Python link 
-Then The user should be redirected to Arrays in Python page
-
-@test
 Scenario Outline: Verify that user is able to navigate to different links in Array page 
 Given The user is in the Array page
 When The user clicks "<link>" link
@@ -31,7 +22,7 @@ Examples:
 |   Basic Operations in Lists  |  Basic Operations in Lists |
 |   Applications of Array  |  Applications of Array  |
 
-@test
+
 Scenario Outline: Verify that user is able to navigate to Try Editor page for different links from Array page 
 Given The user is in the "<link>" page
 When The user clicks Try here button
@@ -44,61 +35,71 @@ Examples:
 |   Basic Operations in Lists  | 
 |   Applications of Array  | 
 
-@test
-Scenario: User enters valid python code in Try Editor from Assessment page
-Given The user is in Assessment page
-When The user enters input from Excel sheet "pythonCode" with testcaseId "TC001" in text area 
-And The user clicks Run button
-Then The user should be able to see the output in the console window
 
-@test @execute
-Scenario Outline: User enters valid/invalid python code in Try Editor from Assessment page
-Given The user is in Arrays in Python page
-When The user enters input from Excel sheet "<sheet>" with testcaseId "testId" in text area 
+Scenario Outline: User enters valid/invalid python code in Try Editor for different sub modules in Array 
+Given The user is in "<moduleLink>" in array page
+When The user enters input from Excel sheet "<sheet>" with testcaseId "<testId>" in text area 
 And The user clicks Run button
 Then The user should be able to see the expected output from excel sheet
 
 Examples:
-|   sheet     | testId |  
-|  pythonCode |  TC001  |    
-|  pythonCode |  TC002  |   
-|  pythonCode |  TC003  |   
+|   sheet     | testId |  moduleLink	|
+|  pythonCode |  TC001  |   Arrays in Python	| 
+|  pythonCode |  TC002  |   Arrays in Python	|
+|  pythonCode |  TC003  |   Arrays in Python	|
 
-@test @execute
-Scenario Outline: User enters valid/invalid python code in Try Editor from Assessment page
-Given The user is in Arrays Using List page
-When The user enters input from Excel sheet "<sheet>" with testcaseId "testId" in text area 
-And The user clicks Run button
-Then The user should be able to see the expected output from excel sheet
+|  pythonCode |  TC001  |    Arrays Using List	| 
+|  pythonCode |  TC002  |    Arrays Using List	|
+|  pythonCode |  TC003  |    Arrays Using List	|
 
-Examples:
-|   sheet     | testId |  
-|  pythonCode |  TC001  |    
-|  pythonCode |  TC002  |   
-|  pythonCode |  TC003  |   
+|  pythonCode |  TC001  |   Basic Operations in Lists	| 
+|  pythonCode |  TC002  |   Basic Operations in Lists	|
+|  pythonCode |  TC003  |   Basic Operations in Lists	|
 
-@test @execute
-Scenario Outline: User enters valid/invalid python code in Try Editor from Assessment page
-Given The user is in Basic Operations in Lists page
-When The user enters input from Excel sheet "<sheet>" with testcaseId "testId" in text area 
-And The user clicks Run button
-Then The user should be able to see the expected output from excel sheet
+|  pythonCode |  TC001  |  Applications of Array	| 
+|  pythonCode |  TC002  |  Applications of Array	|
+|  pythonCode |  TC003  |  Applications of Array	|
+
+
+ Scenario Outline: Verify that user is able to navigate to Practice Questions links from Arrays page  
+Given The user is in the "<link>"
+When The user clicks Practice Questions link
+Then The user should be redirected to "Practice Questions" page
 
 Examples:
-|   sheet     | testId |  
-|  pythonCode |  TC001  |    
-|  pythonCode |  TC002  |   
-|  pythonCode |  TC003  |   
+|       link          |      
+|    Arrays in Python |  
+|    Arrays Using List  |  
+|   Basic Operations in Lists  |  
+|   Applications of Array  |  
 
-@test @execute
-Scenario Outline: User enters valid/invalid python code in Try Editor from Assessment page
-Given The user is in Applications of Array page
-When The user enters input from Excel sheet "<sheet>" with testcaseId "testId" in text area 
-And The user clicks Run button
-Then The user should be able to see the expected output from excel sheet
+Scenario Outline: Verify that user is able to navigate to different links of practice questions page  
+Given The user is in practice questions page
+When The user clicks "<link>" link
+Then The user should be redirected to "<expected_Question>" url
 
 Examples:
-|   sheet     | testId |  
-|  pythonCode |  TC001  |    
-|  pythonCode |  TC002  |   
-|  pythonCode |  TC003  |   
+|       link          |    expected_Question  		|
+|    Search the array |  		search		|
+|    Max Consecutive Ones  |  findMaxConsecutiveOnes	|
+|   Find Numbers with Even Number of Digits  |  findNumbers	|
+|   Squares of  a Sorted Array  |  sortedSquares	|
+
+Scenario Outline: User enters valid/invalid python code for practice questions and verifies the output
+Given The user is on the practice question editor for "<question_link>" 
+When The user write the "<Testcase_ID>" python code in Editor from excel "<sheetName>"
+And The user clicks Run button
+And The user clicks submit button
+Then User should be able to verify the output from the excel sheet 
+Examples:
+|question_link 		|		sheetName       |		Testcase_ID	|			
+|Search the array	|	practice qns		|	TC001	|	
+|Search the array	|	practice qns		|	TC002	|	
+|Max Consecutive Ones 	|	practice qns		|	TC001	|	
+|Max Consecutive Ones 	|	practice qns		|	TC002	|	
+|Find Numbers with Even Number of Digits   	|	practice qns		|	TC001	|	
+|Find Numbers with Even Number of Digits   	|	practice qns		|	TC002	|
+| Squares of  a Sorted Array   	|	practice qns		|	TC001	|	
+| Squares of  a Sorted Array   	|	practice qns		|	TC002	|
+		
+
