@@ -31,7 +31,7 @@ public class Login_StepDefinition extends BaseClass{
 
 	@When("User clicks the Get Started button")
 	public void user_clicks_the_get_started_button() {
-		helper.clickGetStarted();
+		helper.homeGetStartedBtn();
 	}
 
 	@Then("User is in the home page")

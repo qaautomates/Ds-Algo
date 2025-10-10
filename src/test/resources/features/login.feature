@@ -11,4 +11,22 @@ Then The user should navigate to Data Structure Home Page with message "<expecte
 
 Examples:
 |   sheet     | testcase_id |  expected_message  |
+
 |  loginSheet |  TC001      |  You are logged in |
+
+Scenario Outline: Verify login functionality with invalid credentials
+Given The user is on the login page
+When The user enters the "<username>" and password as "<passWord>"
+And The user clicks the login button 
+Then User should be able to see the expected message as "<message>"
+
+Examples:
+|	username	|	passWord	|	message	|
+|				| 				|	Please fill out this field.	|
+|	Qaautomates4|				|	Please fill out this field.	|
+|				|	September2025$	|	Please fill out this field.	|
+|	invalid  	| 	invalid 	|	Invalid Username and Password	|
+|	invalid  	| 	September2025 	|	Invalid Username and Password	|
+|	Qaautomates4|		invalid		|	Please fill out this field.	|
+
+
