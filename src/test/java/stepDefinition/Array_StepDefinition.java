@@ -20,6 +20,7 @@ public class Array_StepDefinition extends BaseClass {
 	// Background
 	@Given("User logged in to the ds algo portal and on home page")
 	public void user_logged_in_to_the_ds_algo_portal_and_on_home_page() {
+		
 		arrayPage.loginToPortal(helper);
 	}
 
@@ -35,16 +36,18 @@ public class Array_StepDefinition extends BaseClass {
 
 	@When("The user select Array item from the drop down menu")
 	public void the_user_select_array_item_from_the_drop_down_menu() {
-
+		arrayPage.selectOptionFromDropDown();
 	}
 
 	@Then("The user should be directed to Array Data Structure Page")
 	public void the_user_should_be_directed_to_array_data_structure_page() {
-
+		
+		Assert.assertEquals(helper.getTitle(), "Array");
 	}
 
 	@Given("The user is in the Array page")
 	public void the_user_is_in_the_array_page() {
+		arrayPage.loginToPortal(helper);
 		helper.dataStructuresGetStarted("array");
 	}
 
@@ -60,47 +63,53 @@ public class Array_StepDefinition extends BaseClass {
 
 	@Given("The user is in the {string} page")
 	public void the_user_is_in_the_page(String string) {
+		helper.login();
+		helper.clickLink(string);
 
 	}
 
 	@When("The user clicks Try here button")
 	public void the_user_clicks_try_here_button() {
-
+		helper.clickTryEditor();
 	}
 
 	@Then("The user should be redirected to Assessment page")
 	public void the_user_should_be_redirected_to_assessment_page() {
+		Assert.assertEquals(helper.getTitle(), "Assessment");
 
 	}
 
-	@Given("The user is in {string} in array page")
-	public void the_user_is_in_in_array_page(String string) {
 
-	}
+@Given("The user is in {string} in array page for {string}")
+public void the_user_is_in_in_array_page_for(String string, String string2) {
+	helper.clickLink(string);
+	// need to specify type of scenario whether pass or fail
+
+}
+
 
 	@When("The user clicks Run button")
 	public void the_user_clicks_run_button() {
-
+		helper.clickRunButton();
 	}
 
 	@Then("The user should be able to see the expected output from excel sheet")
 	public void the_user_should_be_able_to_see_the_expected_output_from_excel_sheet() {
-
-	}
-
-	@Given("The user is in Arrays in Python page")
-	public void the_user_is_in_arrays_in_python_page() {
-
+		
 	}
 
 	@Given("The user is in the {string}")
 	public void the_user_is_in_the(String string) {
-
+		helper.login();
+		helper.homeGetStartedBtn();
+		helper.dataStructuresGetStarted("array");
+		helper.clickLink(string);
+		
 	}
 
 	@When("The user clicks Practice Questions link")
 	public void the_user_clicks_practice_questions_link() {
-
+		helper.clickLink("Practice Questions");
 	}
 
 	@When("The user enters input from Excel sheet {string} with testcaseId {string} in text area")
@@ -110,27 +119,25 @@ public class Array_StepDefinition extends BaseClass {
 
 	@Given("The user is in practice questions page")
 	public void the_user_is_in_practice_questions_page() {
-
+		helper.login();
+		helper.homeGetStartedBtn();
+		helper.dataStructuresGetStarted("array");
+		//helper.c
+		
 	}
 
 	@Then("The user should be redirected to {string} url")
 	public void the_user_should_be_redirected_to_url(String string) {
-
 		Assert.assertEquals(helper.getUrl(), string);
 	}
 
-	@Given("The user is on the practice question editor for {string}")
-	public void the_user_is_on_the_practice_question_editor_for(String string) {
-
+	@Given("The user is on the practice question editor for {string}  for {string}")
+	public void the_user_is_on_the_practice_question_editor_for_for(String string, String string2) {
+	  
 	}
 
 	@When("The user write the {string} python code in Editor from excel {string}")
 	public void the_user_write_the_python_code_in_editor_from_excel(String string, String string2) {
-
-	}
-
-	@When("The user clicks submit button")
-	public void the_user_clicks_submit_button() {
 
 	}
 
