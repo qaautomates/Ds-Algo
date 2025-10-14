@@ -7,10 +7,8 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pageobjects.ArrayPage;
 import pageobjects.Helper;
-import utilities.DriverFactory;
 
 public class Array_StepDefinition extends BaseClass {
-	// static WebDriver driver = DriverFactory.getDriver();
 	private ArrayPage arrayPage;
 	Helper helper;
 
@@ -19,7 +17,6 @@ public class Array_StepDefinition extends BaseClass {
 		helper = new Helper(Hooks.driver);
 	}
 
-	// ArrayPage arrayPage = new ArrayPage(DriverFactory.getDriver());
 	// Background
 	@Given("User logged in to the ds algo portal and on home page")
 	public void user_logged_in_to_the_ds_algo_portal_and_on_home_page() {

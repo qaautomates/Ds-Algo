@@ -11,7 +11,6 @@ public class ArrayPage{
 	}
 	
 	public void loginToPortal(Helper helper) {
-		System.out.println("Driver instance: " + driver);
 		helper.homeGetStartedBtn();
 		driver.findElement(By.linkText("Sign in")).click();
 		driver.findElement(By.name("username")).sendKeys("qaautomates4");
