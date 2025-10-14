@@ -61,7 +61,7 @@ Examples:
 |  pythonCode |  TC003  |  Applications of Array	|
 
 
- Scenario Outline: Verify that user is able to navigate to Practice Questions links from Arrays page  
+Scenario Outline: Verify that user is able to navigate to Practice Questions links from Arrays page  
 Given The user is in the "<link>"
 When The user clicks Practice Questions link
 Then The user should be redirected to "Practice Questions" page
