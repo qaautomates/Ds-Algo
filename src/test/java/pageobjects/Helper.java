@@ -14,6 +14,12 @@ public class Helper {
   		this.driver = driver;
   	}
 	
+  	public void login() {
+  		driver.findElement(By.name("username")).sendKeys("qaautomates4");
+		driver.findElement(By.name("password")).sendKeys("September2025$");
+		driver.findElement(By.xpath("//input[@type='submit']")).click();
+  	}
+  	
 	public String getTitle() {
 		
 		return driver.getTitle();
@@ -38,5 +44,15 @@ public class Helper {
 		return driver.getCurrentUrl();
 		
 	}
+	
+	public void clickTryEditor() {
+		driver.findElement(By.linkText("Try here>>>")).click();
+	}
+	
+	public void clickRunButton() {
+		driver.findElement(By.xpath("//button[@type='button']")).click();
+	}
+	
+	
 
 }
