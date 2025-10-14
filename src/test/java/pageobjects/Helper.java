@@ -3,9 +3,6 @@ package pageobjects;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-import stepDefinition.Hooks;
-
-
 public class Helper {
 	
   WebDriver driver;
