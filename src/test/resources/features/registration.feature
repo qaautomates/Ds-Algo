@@ -26,7 +26,7 @@ Then  User should be able to get the error message "Please fill out this filed."
 Scenario: Verify Registration functionality with valid/invalid credential 
 Given User is on registration page
 When The user enters the username as "<username>", password as "<passWord>" and password confirmation as "<password_confirmation>"
-And User clicks Register buttons
+And User clicks Register button
 Then User should be able to see the expected message "<expected message>"
 
 Examples:

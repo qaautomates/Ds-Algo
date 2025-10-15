@@ -6,6 +6,17 @@ import io.cucumber.java.en.When;
 
 public class Registration_StepDefinition {
 
+	@When("The user clicks register link")
+	public void the_user_clicks_register_link() {
+	   
+	}
+
+	@Then("User should be redirected to registration page")
+	public void user_should_be_redirected_to_registration_page() {
+	   
+	}
+
+	
 	@Given("User clicks on getstarted button and user is in the home page")
 	public void user_clicks_on_getstarted_button_and_user_is_in_the_home_page() {
 
