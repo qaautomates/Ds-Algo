@@ -33,67 +33,75 @@ public class Graph_StepDefinition {
 
 	@Given("The user is in the Graph page")
 	public void the_user_is_in_the_graph_page() {
-
+	
 	}
 
-	@When("The user clicks on {string} link")
-	public void the_user_clicks_on_link(String string) {
+	@When("The user clicks on {string} link for Graph")
+	public void the_user_clicks_on_link_for_graph(String string) {
+	  
+	}
+
+	@Then("The user should be redirected to {string} page for Graph")
+	public void the_user_should_be_redirected_to_page_for_graph(String string) {
 	   
 	}
 
-	@Then("The user should be redirected to {string} page")
-	public void the_user_should_be_redirected_to_page(String string) {
+	@Given("The user is in the {string} page for Graph")
+	public void the_user_is_in_the_page_for_graph(String string) {
+	   
+	}
+
+	@When("The user click try here button for Graph")
+	public void the_user_click_try_here_button_for_graph() {
+
+	}
+
+	@Then("The user must be redirected to Assessment page for Graph")
+	public void the_user_must_be_redirected_to_assessment_page_for_graph() {
+	   
+	}
+	
+	@When("User enter input from the Excel sheet {string} with the testcaseId {string} in text area for Graph")
+	public void user_enter_input_from_the_excel_sheet_with_the_testcase_id_in_text_area_for_graph(String string, String string2) {
+
+	}
+
+	@When("The user clicks Run button for Graph")
+	public void the_user_clicks_run_button_for_graph() {
 	  
 	}
 
-	@Given("The user is in the {string} page")
-	public void the_user_is_in_the_page(String string) {
+	@Then("The user should be able to see expected output from excel sheet for Graph")
+	public void the_user_should_be_able_to_see_expected_output_from_excel_sheet_for_graph() {
+	
+	}
+
+	@Given("The user is in the {string} link for Graph")
+	public void the_user_is_in_the_link_for_graph(String string) {
+	 
+	}
+
+	@When("The user click Practice Questions link for Graph")
+	public void the_user_click_practice_questions_link_for_graph() {
 	  
 	}
 
-	@When("The user clicks on Try here button")
-	public void the_user_clicks_on_try_here_button() {
-	  
+	@Then("The user should be redirected to the {string} page for Graph")
+	public void the_user_should_be_redirected_to_the_page_for_graph(String string) {
+	
 	}
 
-	@Then("The user is redirected to Assessment page")
-	public void the_user_is_redirected_to_assessment_page() {
-	  
-	}
+
 
 	@Given("The user is in {string} in graph")
 	public void the_user_is_in_in_graph(String string) {
 	
 	}
 
-	@When("The user enters input from the Excel sheet {string} with the testcaseId {string} in text area")
-	public void the_user_enters_input_from_the_excel_sheet_with_the_testcase_id_in_text_area(String string, String string2) {
 	
-	}
 
-	@When("The user clicks on Run button")
-	public void the_user_clicks_on_run_button() {
-
-	}
-
-	@Then("The user should be able to see expected output from excel sheet")
-	public void the_user_should_be_able_to_see_expected_output_from_excel_sheet() {
-	   
-	}
-
-	@Given("The user is in the {string} link")
-	public void the_user_is_in_the_link(String string) {
-
-	}
-
-	@When("The user clicks on Practice Questions link")
-	public void the_user_clicks_on_practice_questions_link() {
-
-	}
-
-	@Then("The user should be redirected to the {string} page")
-	public void the_user_should_be_redirected_to_the_page(String string) {
 	
-	}
+}	
 	
-}
+
+	

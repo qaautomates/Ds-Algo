@@ -12,8 +12,8 @@ Then The user should be directed to Graph Data Structure Page
 
 Scenario Outline: Verify that user is able to navigate to different links in Graph page 
 Given The user is in the Graph page
-When The user clicks on "<link>" link
-Then The user should be redirected to "<expected_title>" page
+When The user clicks on "<link>" link for Graph
+Then The user should be redirected to "<expected_title>" page for Graph
 
 Examples:
 |       link               |      expected_title    |
@@ -21,9 +21,9 @@ Examples:
 |    Graph Representations |  Graph Representations |
 
 Scenario Outline: Verify that user is able to navigate to Try Editor page for different links from Graph page 
-Given The user is in the "<link>" page 
-When The user clicks on Try here button
-Then The user is redirected to Assessment page
+Given The user is in the "<link>" page for Graph
+When The user click try here button for Graph
+Then The user must be redirected to Assessment page for Graph
 
 Examples:
 |       link              |    
@@ -32,9 +32,9 @@ Examples:
 
 Scenario Outline: User enters valid/invalid python code in Try Editor for different sub modules in Graph 
 Given The user is in "<moduleLink>" in graph 
-When The user enters input from the Excel sheet "<sheet>" with the testcaseId "<testId>" in text area 
-And The user clicks on Run button
-Then The user should be able to see expected output from excel sheet
+When User enter input from the Excel sheet "<sheet>" with the testcaseId "<testId>" in text area for Graph
+And The user clicks Run button for Graph
+Then The user should be able to see expected output from excel sheet for Graph
 
 Examples:
 |   sheet     | testId  |  moduleLink  |
@@ -48,9 +48,9 @@ Examples:
 
 
 Scenario Outline: Verify that user is able to navigate to Practice Questions links from Graph page  
-Given The user is in the "<link>" link
-When The user clicks on Practice Questions link
-Then The user should be redirected to the "Practice Questions" page
+Given The user is in the "<link>" link for Graph
+When The user click Practice Questions link for Graph
+Then The user should be redirected to the "Practice Questions" page for Graph
 
 Examples:
 |       link              |      
