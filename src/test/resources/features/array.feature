@@ -37,7 +37,7 @@ Examples:
 
 
 Scenario Outline: User enters valid/invalid python code in Try Editor for different sub modules in Array 
-Given The user is in "<moduleLink>" in array page
+Given The user is in the "<moduleLink>" page
 When The user enters input from Excel sheet "<sheet>" with testcaseId "<testId>" in text area 
 And The user clicks Run button
 Then The user should be able to see the expected output from excel sheet

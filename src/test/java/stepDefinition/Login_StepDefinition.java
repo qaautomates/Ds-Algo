@@ -20,8 +20,8 @@ public class Login_StepDefinition extends BaseClass{
 		loginPage = new LoginPage(Hooks.driver);
 		helper = new Helper(Hooks.driver);
 	 }
+	
 	// Background
-
 	@Given("User is in NumpyNinja page")
 	public void user_is_in_numpy_ninja_page() {
 	
@@ -39,7 +39,7 @@ public class Login_StepDefinition extends BaseClass{
 		Assert.assertEquals(helper.getTitle(), "NumpyNinja");
 	}
 
-//Scenario
+	//Scenario
 	@Given("The user is on the login page")
 	public void the_user_is_on_the_login_page() {
 		loginPage.clickSignIn();
@@ -63,5 +63,34 @@ public class Login_StepDefinition extends BaseClass{
 		System.out.println(loginPage.verifyMessage());
 		
 	}
+	
+	@When("The user enters the {string} and password as {string}")
+	public void the_user_enters_the_and_password_as(String string, String string2) {
+	    
+	}
 
+	@When("The user clicks the login button")
+	public void the_user_clicks_the_login_button() {
+	    
+	}
+
+	@Then("User should be able to see the expected message as {string}")
+	public void user_should_be_able_to_see_the_expected_message_as(String string) {
+	    
+	}
+
+	@Given("The user is on the Home page after Sign in")
+	public void the_user_is_on_the_home_page_after_sign_in() {
+	    
+	}
+
+	@When("The user clicks Sign out link")
+	public void the_user_clicks_sign_out_link() {
+	    
+	}
+
+	@Then("The user should be redirected to home page with message {string}")
+	public void the_user_should_be_redirected_to_home_page_with_message(String string) {
+	    
+	}
 }

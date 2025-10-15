@@ -29,4 +29,8 @@ Examples:
 |	invalid  	| 	September2025 	|	Invalid Username and Password	|
 |	Qaautomates4|		invalid		|	Please fill out this field.	|
 
+Scenario: Verify that user is able to sign out successfully
+Given The user is on the Home page after Sign in
+When The user clicks Sign out link
+Then The user should be redirected to home page with message "Logged out successfully"
 

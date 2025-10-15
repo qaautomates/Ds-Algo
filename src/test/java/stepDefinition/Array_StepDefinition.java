@@ -130,11 +130,17 @@ public void the_user_is_in_in_array_page_for(String string, String string2) {
 	public void the_user_should_be_redirected_to_url(String string) {
 		Assert.assertEquals(helper.getUrl(), string);
 	}
-
-	@Given("The user is on the practice question editor for {string}  for {string}")
-	public void the_user_is_on_the_practice_question_editor_for_for(String string, String string2) {
-	  
+	
+	@Given("The user is on the practice question editor for {string}")
+	public void the_user_is_on_the_practice_question_editor_for(String string) {
+	    
 	}
+
+	@When("The user clicks submit button")
+	public void the_user_clicks_submit_button() {
+	    
+	}
+
 
 	@When("The user write the {string} python code in Editor from excel {string}")
 	public void the_user_write_the_python_code_in_editor_from_excel(String string, String string2) {
