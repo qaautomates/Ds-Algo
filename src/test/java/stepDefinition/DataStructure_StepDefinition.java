@@ -11,14 +11,14 @@ public class DataStructure_StepDefinition {
 	  
 	}
 
-	@When("The user clicks the Get Started button in Data Structures Panel")
-	public void the_user_clicks_the_get_started_button_in_data_structures_panel() {
+	@When("The user clicks the Get Started button in Data Structure intro Panel")
+	public void the_user_clicks_the_get_started_button_in_data_structure_intro_panel() {
 	    
 	}
 
-	@Then("The user should navigate to Data Structures - Introduction Page")
+	@Then("The user should navigate to Data Structures Introduction Page")
 	public void the_user_should_navigate_to_data_structures_introduction_page() {
-	    
+	  
 	}
 
 	@When("The user chooses the Data Structures Introduction option from the module dropdown")
