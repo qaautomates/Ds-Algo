@@ -51,8 +51,6 @@
 			<artifactId>cucumber-testng</artifactId>
 			<version>7.28.2</version>
 		</dependency>
-
-
 		<dependency>
 			<groupId>net.java.dev.jna</groupId>
 			<artifactId>jna</artifactId>
@@ -78,6 +76,9 @@
 				<artifactId>maven-surefire-plugin</artifactId>
 				<version>3.5.4</version>
 				<configuration>
+					<systemPropertyVariables>
+          				<allure.results.directory>allure-results</allure.results.directory>
+        			</systemPropertyVariables>
 					<parallel>methods</parallel>
 					<useUnlimitedThreads>true</useUnlimitedThreads>
 				</configuration>
