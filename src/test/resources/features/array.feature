@@ -1,13 +1,20 @@
 Feature: Array data structure 
 
+
+
+
+
 Background: 
 Given User logged in to the ds algo portal and on home page
+@testNow
+
 Scenario: Verify that user is able to navigate to Array datastructure page from Get Started Link 
 When The user clicks the Get Started button in Array Panel
 Then The user should navigate to Array Data Structure Page
 
+@testNow
 Scenario: Verify that user is able to navigate to Array datastructure page from dropdown 
-When The user select Array item from the drop down menu
+When The user select "Arrays" item from the drop down menu
 Then The user should be directed to Array Data Structure Page
 
 Scenario Outline: Verify that user is able to navigate to different links in Array page 
@@ -22,7 +29,7 @@ Examples:
 |   Basic Operations in Lists  |  Basic Operations in Lists |
 |   Applications of Array  |  Applications of Array  |
 
-
+@testNow
 Scenario Outline: Verify that user is able to navigate to Try Editor page for different links from Array page 
 Given The user is in the "<link>" page
 When The user clicks Try here button
@@ -35,10 +42,12 @@ Examples:
 |   Basic Operations in Lists  | 
 |   Applications of Array  | 
 
+@testNow
 
 Scenario Outline: User enters valid/invalid python code in Try Editor for different sub modules in Array 
 Given The user is in the "<moduleLink>" page
-When The user enters input from Excel sheet "<sheet>" with testcaseId "<testId>" in text area 
+When The user clicks Try here button
+And The user enters input from Excel sheet "<sheet>" with testcaseId "<testId>" in text area 
 And The user clicks Run button
 Then The user should be able to see the expected output from excel sheet
 
@@ -73,6 +82,8 @@ Examples:
 |   Basic Operations in Lists  |  
 |   Applications of Array  |  
 
+@practicePage
+
 Scenario Outline: Verify that user is able to navigate to different links of practice questions page  
 Given The user is in practice questions page
 When The user clicks "<link>" link
@@ -84,6 +95,8 @@ Examples:
 |    Max Consecutive Ones  |  findMaxConsecutiveOnes	|
 |   Find Numbers with Even Number of Digits  |  findNumbers	|
 |   Squares of  a Sorted Array  |  sortedSquares	|
+
+@practicePage
 
 Scenario Outline: User enters valid/invalid python code for practice questions and verifies the output
 Given The user is on the practice question editor for "<question_link>" 
