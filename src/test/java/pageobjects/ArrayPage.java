@@ -1,15 +1,9 @@
 package pageobjects;
 
-
 import java.io.IOException;
-import java.util.HashMap;
-
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
-
-import utilities.ExcelSheetHandling;
-
+import org.openqa.selenium.WebElement;
 
 public class ArrayPage  {
 
@@ -29,8 +23,6 @@ public class ArrayPage  {
 	
 	public void selectArrayFromDropDown(String string) {
 		helper.selectDropDownMenu(string);
-		//driver.findElement(By.xpath("//a[contains(text(),'Data Structures')]")).click();
-		//driver.findElement(By.linkText(""+string+"")).click();
 	}
 	
 	public void clickArrayTryEditor() {
@@ -45,15 +37,37 @@ public class ArrayPage  {
 	public void arrayClickLink(String string) {
 		helper.clickLink(string);
 	}
-	public void enterArrayPythonCode(String sheet, String testcase_id) throws IOException {
-		
-		ExcelSheetHandling excelReader = new ExcelSheetHandling();
-		HashMap<String, String> code = excelReader.readExcelSheet(sheet, testcase_id);
-		helper.enterPythonCode(code.get("pythonCode"));
-		
+	
+	public void enterArrayPythonCode(String sheet, String testcase_id) throws IOException {	
+		helper.enterPythonCode(helper.readFromExcel(sheet, testcase_id, "pythonCode"));
 	}
 	
 	public void clickArrayRunBtn() {
 		helper.clickRunButton();
+	}
+	
+	public String readExpectedOutputForArray(String sheet, String testcase_id) throws IOException {
+		return helper.readFromExcel(sheet, testcase_id, "Result");
+	}
+	
+	public String getActualOutputForArray() {
+		return helper.readActualOutput();
+	}
+	
+	public void moveToPracticeQuestionsPage() {
+		//loginToPortal();
+		helper.dataStructuresGetStarted("array");
+		helper.clickLink("Arrays in Python");
+		helper.clickLink("Practice Questions");
+	}
+	
+	public String getAssessmentQuestion() {
+		WebElement question = driver.findElement(By.className("cm-def"));
+		return question.getText();
+	}
+	
+	public void moveToPracticeQuestionsEditor(String questionLink) {
+		moveToPracticeQuestionsPage();
+		helper.clickLink(questionLink);
 	}
 }

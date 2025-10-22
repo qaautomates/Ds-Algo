@@ -1,5 +1,6 @@
 package stepDefinition;
 
+import java.io.IOException;
 import java.util.HashMap;
 
 import org.testng.Assert;
@@ -28,7 +29,7 @@ public class Array_StepDefinition extends BaseClass {
 
 	@When("The user clicks the Get Started button in Array Panel")
 	public void the_user_clicks_the_get_started_button_in_array_panel() {
-		helper.dataStructuresGetStarted("array");
+		arrayPage.arrayGetStarted();
 	}
 
 	@Then("The user should navigate to Array Data Structure Page")
@@ -40,8 +41,6 @@ public class Array_StepDefinition extends BaseClass {
 	public void the_user_select_item_from_the_drop_down_menu(String string) {
 		arrayPage.selectArrayFromDropDown(string);
 	}
-
-
 
 	@Then("The user should be directed to Array Data Structure Page")
 	public void the_user_should_be_directed_to_array_data_structure_page() {
@@ -67,11 +66,6 @@ public class Array_StepDefinition extends BaseClass {
 	public void the_user_is_in_the_page(String string) {
 		arrayPage.arrayGetStarted();
 		arrayPage.arrayClickLink(string);
-
-		
-		//helper.dataStructuresGetStarted("array");
-		//helper.clickLink(string);
-
 	}
 
 	@When("The user clicks Try here button")
@@ -85,24 +79,22 @@ public class Array_StepDefinition extends BaseClass {
 
 	}
 
-
-@Given("The user is in {string} in array page for {string}")
-public void the_user_is_in_in_array_page_for(String string, String string2) {
-	helper.clickLink(string);
-	// need to specify type of scenario whether pass or fail
-
-}
-
+	@Given("The user is in {string} in array page for {string}")
+	public void the_user_is_in_in_array_page_for(String string, String string2) {
+		helper.clickLink(string);
+		// need to specify type of scenario whether pass or fail
+	}
 
 	@When("The user clicks Run button")
 	public void the_user_clicks_run_button() {
-
 		arrayPage.clickArrayRunBtn();
 	}
-
-	@Then("The user should be able to see the expected output from excel sheet")
-	public void the_user_should_be_able_to_see_the_expected_output_from_excel_sheet() {
-		
+	
+	@Then("The user should be able to see the expected output from excel sheet {string} with testcaseId {string}")
+	public void the_user_should_be_able_to_see_the_expected_output_from_excel_sheet_with_testcase_id(String sheet, String testId) throws IOException {
+		String expected = arrayPage.readExpectedOutputForArray(sheet, testId);
+		String actual = arrayPage.getActualOutputForArray();
+		Assert.assertEquals(expected, actual, "Expected and actual output for python code run is not same");
 	}
 
 	@Given("The user is in the {string}")
@@ -121,43 +113,40 @@ public void the_user_is_in_in_array_page_for(String string, String string2) {
 
 	@When("The user enters input from Excel sheet {string} with testcaseId {string} in text area")
 	public void the_user_enters_input_from_excel_sheet_with_testcase_id_in_text_area(String sheet, String testcase_id) throws Exception {
-	
 		arrayPage.enterArrayPythonCode(sheet, testcase_id);
-	
 	}
 
 	@Given("The user is in practice questions page")
 	public void the_user_is_in_practice_questions_page() {
-		helper.login();
-		helper.homeGetStartedBtn();
-		helper.dataStructuresGetStarted("array");
-				
+		arrayPage.moveToPracticeQuestionsPage();	
 	}
 
-	@Then("The user should be redirected to {string} url")
-	public void the_user_should_be_redirected_to_url(String string) {
-		Assert.assertEquals(helper.getUrl(), string);
+	@Then("The user should be redirected to {string} assessment page")
+	public void the_user_should_be_redirected_to_assessment_page(String string) {
+	    Assert.assertEquals(arrayPage.getAssessmentQuestion(), string); 
 	}
 	
 	@Given("The user is on the practice question editor for {string}")
 	public void the_user_is_on_the_practice_question_editor_for(String string) {
-	    
+	    arrayPage.moveToPracticeQuestionsEditor(string);
 	}
 
 	@When("The user clicks submit button")
 	public void the_user_clicks_submit_button() {
-	    
+	   // arrayPage.clickArraySubmitBtn();
 	}
 
 
 	@When("The user write the {string} python code in Editor from excel {string}")
-	public void the_user_write_the_python_code_in_editor_from_excel(String string, String string2) {
-
+	public void the_user_write_the_python_code_in_editor_from_excel(String testId, String sheet) throws IOException {
+		arrayPage.enterArrayPythonCode(sheet, testId);
 	}
 
-	@Then("User should be able to verify the output from the excel sheet")
-	public void user_should_be_able_to_verify_the_output_from_the_excel_sheet() {
-
+	@Then("User should be able to verify the output from the excel sheet {string} with {string}")
+	public void user_should_be_able_to_verify_the_output_from_the_excel_sheet_with(String sheet, String testId) throws IOException {
+		String expected = arrayPage.readExpectedOutputForArray(sheet, testId);
+		String actual = arrayPage.getActualOutputForArray();
+		Assert.assertEquals(expected, actual, "Expected and actual output for python code run is not same");
 	}
 
 }

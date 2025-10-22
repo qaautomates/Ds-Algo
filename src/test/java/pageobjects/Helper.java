@@ -1,12 +1,20 @@
 package pageobjects;
 
+import java.io.IOException;
+import java.time.Duration;
+import java.util.HashMap;
+
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import utilities.DriverFactory;
+import utilities.ExcelSheetHandling;
 
 public class Helper {
 
@@ -75,5 +83,22 @@ public class Helper {
 	public void clickRunButton() {
 		driver.findElement(By.xpath("//button[@type='button']")).click();
 	}
-
+	
+	public String readFromExcel(String sheet, String testcase_id, String key) throws IOException {
+		ExcelSheetHandling excelReader = new ExcelSheetHandling();
+		HashMap<String, String> code = excelReader.readExcelSheet(sheet, testcase_id);
+		return code.get(key);
+	}
+	
+	public String readActualOutput() {
+		try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+            wait.until(ExpectedConditions.alertIsPresent());
+            Alert alert = driver.switchTo().alert();
+            return alert.getText();
+        } catch (Exception e) {
+        	WebElement output = driver.findElement(By.id("output"));
+    		return output.getText();
+        }
+	}
 }
