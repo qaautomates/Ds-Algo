@@ -1,9 +1,5 @@
 Feature: Array data structure 
 
-
-
-
-
 Background: 
 Given User logged in to the ds algo portal and on home page
 @testNow
@@ -49,7 +45,7 @@ Given The user is in the "<moduleLink>" page
 When The user clicks Try here button
 And The user enters input from Excel sheet "<sheet>" with testcaseId "<testId>" in text area 
 And The user clicks Run button
-Then The user should be able to see the expected output from excel sheet
+Then The user should be able to see the expected output from excel sheet "<sheet>" with testcaseId "<testId>"
 
 Examples:
 |   sheet     | testId |  moduleLink	|
@@ -87,7 +83,7 @@ Examples:
 Scenario Outline: Verify that user is able to navigate to different links of practice questions page  
 Given The user is in practice questions page
 When The user clicks "<link>" link
-Then The user should be redirected to "<expected_Question>" url
+Then The user should be redirected to "<expected_Question>" assessment page
 
 Examples:
 |       link          |    expected_Question  		|
@@ -102,17 +98,21 @@ Scenario Outline: User enters valid/invalid python code for practice questions a
 Given The user is on the practice question editor for "<question_link>" 
 When The user write the "<Testcase_ID>" python code in Editor from excel "<sheetName>"
 And The user clicks Run button
-And The user clicks submit button
-Then User should be able to verify the output from the excel sheet 
+#And The user clicks submit button
+Then User should be able to verify the output from the excel sheet "<sheetName>" with "<Testcase_ID>"
 Examples:
 |question_link 		|		sheetName       |		Testcase_ID	|			
-|Search the array	|	practice qns		|	TC001	|	
-|Search the array	|	practice qns		|	TC002	|	
-|Max Consecutive Ones 	|	practice qns		|	TC001	|	
-|Max Consecutive Ones 	|	practice qns		|	TC002	|	
-|Find Numbers with Even Number of Digits   	|	practice qns		|	TC001	|	
-|Find Numbers with Even Number of Digits   	|	practice qns		|	TC002	|
-| Squares of  a Sorted Array   	|	practice qns		|	TC001	|	
-| Squares of  a Sorted Array   	|	practice qns		|	TC002	|
+|Search the array	|	Practice Questions	|	TC001	|	
+|Search the array	|	Practice Questions	|	TC002	|	
+|Search the array	|	Practice Questions	|	TC003	|
+|Max Consecutive Ones 	|	Practice Questions	|	TC001	|	
+|Max Consecutive Ones 	|	Practice Questions	|	TC002	|	
+|Max Consecutive Ones 	|	Practice Questions	|	TC003	|
+|Find Numbers with Even Number of Digits   	|	Practice Questions	|	TC001	|	
+|Find Numbers with Even Number of Digits   	|	Practice Questions	|	TC002	|
+|Find Numbers with Even Number of Digits   	|	Practice Questions	|	TC003	|
+| Squares of  a Sorted Array   	|	Practice Questions	|	TC001	|	
+| Squares of  a Sorted Array   	|	Practice Questions	|	TC002	|
+| Squares of  a Sorted Array   	|	Practice Questions	|	TC003	|
 		
 
