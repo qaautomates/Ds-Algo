@@ -81,7 +81,7 @@ public class Array_StepDefinition extends BaseClass {
 
 	@Given("The user is in {string} in array page for {string}")
 	public void the_user_is_in_in_array_page_for(String string, String string2) {
-		helper.clickLink(string);
+		arrayPage.arrayClickLink(string);
 		// need to specify type of scenario whether pass or fail
 	}
 
@@ -99,16 +99,13 @@ public class Array_StepDefinition extends BaseClass {
 
 	@Given("The user is in the {string}")
 	public void the_user_is_in_the(String string) {
-		helper.login();
-		helper.homeGetStartedBtn();
-		helper.dataStructuresGetStarted("array");
-		helper.clickLink(string);
-		
+		arrayPage.arrayGetStarted();
+		arrayPage.arrayClickLink(string);
 	}
 
 	@When("The user clicks Practice Questions link")
 	public void the_user_clicks_practice_questions_link() {
-		helper.clickLink("Practice Questions");
+		arrayPage.arrayClickLink("Practice Questions");
 	}
 
 	@When("The user enters input from Excel sheet {string} with testcaseId {string} in text area")
