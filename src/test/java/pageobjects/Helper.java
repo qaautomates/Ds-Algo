@@ -10,10 +10,11 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import utilities.DriverFactory;
 import utilities.ExcelSheetHandling;
 
 public class Helper {
@@ -22,12 +23,28 @@ public class Helper {
 
 	public Helper(WebDriver driver) {
 		this.driver = driver;
+		PageFactory.initElements(driver,this );
 	}
 
+	@FindBy(linkText = "Sign in")WebElement signInLink;
+	@FindBy(name = "username") WebElement uName;
+	@FindBy(name = "password") WebElement passWord;
+	@FindBy(xpath = "//input[@type='submit']") WebElement logInBtn;
+	@FindBy(xpath = "//button[contains(text(),'Get Started')]") WebElement getStartedBtn;
+	@FindBy(xpath = "//a[contains(text(),'Data Structures')]") WebElement dropdownMenu;
+	@FindBy(linkText = "Try here>>>") WebElement tryHereBtn;
+	@FindBy(xpath = "//button[@type='button']") WebElement runBtn;
+
+
+	
+	public void clickSignIn() {
+		signInLink.click();
+	}
+	
 	public void login() {
-		driver.findElement(By.name("username")).sendKeys("qaautomates4");
-		driver.findElement(By.name("password")).sendKeys("September2025$");
-		driver.findElement(By.xpath("//input[@type='submit']")).click();
+		uName.sendKeys("qaautomates4");
+		passWord.sendKeys("September2025$");
+		logInBtn.click();
 	}
 
 	public String getTitle() {
@@ -38,12 +55,12 @@ public class Helper {
 
 	public void homeGetStartedBtn() {
 
-		driver.findElement(By.xpath("//button[contains(text(),'Get Started')]")).click();
+		getStartedBtn.click();
 
 	}
 
 	public void selectDropDownMenu(String string) {
-		driver.findElement(By.xpath("//a[contains(text(),'Data Structures')]")).click();
+		dropdownMenu.click();
 		driver.findElement(By.linkText("" + string + "")).click();
 	}
 
@@ -64,12 +81,12 @@ public class Helper {
 	public void clickTryEditor() {
 
 		Actions act = new Actions(driver);
-		WebElement element = driver.findElement(By.linkText("Try here>>>"));
+		WebElement element = tryHereBtn;
 		act.moveToElement(element).click(element).build().perform();
 	}
 
 	public void enterPythonCode(String code) {
-
+	
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("document.querySelector('.CodeMirror').CodeMirror.setValue('');");
 		js.executeScript("document.querySelector('.CodeMirror').CodeMirror.setValue(arguments[0]);", code);
@@ -81,7 +98,7 @@ public class Helper {
 	}
 
 	public void clickRunButton() {
-		driver.findElement(By.xpath("//button[@type='button']")).click();
+		runBtn.click();
 	}
 	
 	public String readFromExcel(String sheet, String testcase_id, String key) throws IOException {
