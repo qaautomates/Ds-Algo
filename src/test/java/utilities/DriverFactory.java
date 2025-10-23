@@ -24,7 +24,7 @@ public class DriverFactory {
 			EdgeOptions options = new EdgeOptions();
 			options.addArguments("--headless");
 			driver = new EdgeDriver(options);
-			// return new EdgeDriver();
+			//return new EdgeDriver();
 
 		} else if (browserName.equalsIgnoreCase("Chrome")) {
 			ChromeOptions options = new ChromeOptions();
