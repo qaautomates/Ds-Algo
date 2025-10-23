@@ -79,40 +79,40 @@ Examples:
 |  pythonCode |  TC003  |   Tree Traversals	|
 
 
-#|  pythonCode |  TC001  |   Traversals-Illustration	| 
-#|  pythonCode |  TC002  |   Traversals-Illustration	|
-#|  pythonCode |  TC003  |   Traversals-Illustration	|
+|  pythonCode |  TC001  |   Traversals-Illustration	| 
+|  pythonCode |  TC002  |   Traversals-Illustration	|
+|  pythonCode |  TC003  |   Traversals-Illustration	|
 
-#|  pythonCode |  TC001  |   Binary Trees	| 
-#|  pythonCode |  TC002  |   Binary Trees	|
-#|  pythonCode |  TC003  |   Binary Trees	|
+|  pythonCode |  TC001  |   Binary Trees	| 
+|  pythonCode |  TC002  |   Binary Trees	|
+|  pythonCode |  TC003  |   Binary Trees	|
 
-#|  pythonCode |  TC001  |   Types of Binary Trees	| 
-#|  pythonCode |  TC002  |   Types of Binary Trees	|
-#|  pythonCode |  TC003  |   Types of Binary Trees	|
+|  pythonCode |  TC001  |   Types of Binary Trees	| 
+|  pythonCode |  TC002  |   Types of Binary Trees	|
+|  pythonCode |  TC003  |   Types of Binary Trees	|
 
-#|  pythonCode |  TC001  |   Implementation in Python	| 
-#|  pythonCode |  TC002  |   Implementation in Python	|
-#|  pythonCode |  TC003  |   Implementation in Python	|
+|  pythonCode |  TC001  |   Implementation in Python	| 
+|  pythonCode |  TC002  |   Implementation in Python	|
+|  pythonCode |  TC003  |   Implementation in Python	|
 
-#|  pythonCode |  TC001  |   Binary Tree Traversals	| 
-#|  pythonCode |  TC002  |   Binary Tree Traversals	|
-#|  pythonCode |  TC003  |   Binary Tree Traversals	|
+|  pythonCode |  TC001  |   Binary Tree Traversals	| 
+|  pythonCode |  TC002  |   Binary Tree Traversals	|
+|  pythonCode |  TC003  |   Binary Tree Traversals	|
 
 
-#|  pythonCode |  TC001  |   Implementation of Binary Trees	| 
-#|  pythonCode |  TC002  |   Implementation of Binary Trees	|
-#|  pythonCode |  TC003  |   Implementation of Binary Trees	|
+|  pythonCode |  TC001  |   Implementation of Binary Trees	| 
+|  pythonCode |  TC002  |   Implementation of Binary Trees	|
+|  pythonCode |  TC003  |   Implementation of Binary Trees	|
 
-#|  pythonCode |  TC001  |   Applications of Binary trees	| 
-#|  pythonCode |  TC002  |   Applications of Binary trees	|
-#|  pythonCode |  TC003  |   Applications of Binary trees	|
+|  pythonCode |  TC001  |   Applications of Binary trees	| 
+|  pythonCode |  TC002  |   Applications of Binary trees	|
+|  pythonCode |  TC003  |   Applications of Binary trees	|
 
-#|  pythonCode |  TC001  |   Binary Search Trees	| 
-#|  pythonCode |  TC002  |   Binary Search Trees	|
-#|  pythonCode |  TC003  |   Binary Search Trees	|
+|  pythonCode |  TC001  |   Binary Search Trees	| 
+|  pythonCode |  TC002  |   Binary Search Trees	|
+|  pythonCode |  TC003  |   Binary Search Trees	|
 
-#|  pythonCode |  TC001  |   Implementation Of BST	| 
-#|  pythonCode |  TC002  |   Implementation Of BST	|
-#|  pythonCode |  TC003  |   Implementation Of BST	|
+|  pythonCode |  TC001  |   Implementation Of BST	| 
+|  pythonCode |  TC002  |   Implementation Of BST	|
+|  pythonCode |  TC003  |   Implementation Of BST	|
 
