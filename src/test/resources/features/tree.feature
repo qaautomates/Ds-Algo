@@ -70,13 +70,13 @@ Examples:
 |  pythonCode |  TC003  |   Overview of Trees	|
 
 
-#|  pythonCode |  TC001  |   Types of Trees	| 
-#|  pythonCode |  TC002  |   Types of Trees	|
-#|  pythonCode |  TC003  |   Types of Trees	|
+|  pythonCode |  TC001  |   Types of Trees	| 
+|  pythonCode |  TC002  |   Types of Trees	|
+|  pythonCode |  TC003  |   Types of Trees	|
 
-#|  pythonCode |  TC001  |   Tree Traversals	| 
-#|  pythonCode |  TC002  |   Tree Traversals	|
-#|  pythonCode |  TC003  |   Tree Traversals	|
+|  pythonCode |  TC001  |   Tree Traversals	| 
+|  pythonCode |  TC002  |   Tree Traversals	|
+|  pythonCode |  TC003  |   Tree Traversals	|
 
 
 #|  pythonCode |  TC001  |   Traversals-Illustration	| 
