@@ -47,13 +47,13 @@ Examples:
 |  pythonCode |  TC002  |   Operations in Stack	|
 |  pythonCode |  TC003  |   Operations in Stack	|
 
-#|  pythonCode |  TC001  |    Implementation	| 
-#|  pythonCode |  TC002  |    Implementation	|
-#|  pythonCode |  TC003  |    Implementation	|
+|  pythonCode |  TC001  |    Implementation	| 
+|  pythonCode |  TC002  |    Implementation	|
+|  pythonCode |  TC003  |    Implementation	|
 
-#|  pythonCode |  TC001  |  Applications 	| 
-#|  pythonCode |  TC002  |  Applications 	|
-#|  pythonCode |  TC003  |  Applications 	|
+|  pythonCode |  TC001  |  Applications 	| 
+|  pythonCode |  TC002  |  Applications 	|
+|  pythonCode |  TC003  |  Applications 	|
 
 Scenario Outline: Verify that user is able to navigate to Practice Questions links from Stack page  
 Given The user is in the "<link>" link of Stack
