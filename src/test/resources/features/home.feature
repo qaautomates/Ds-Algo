@@ -21,3 +21,18 @@ Examples:
 |Tree         |
 |Graph        |
 
+Scenario Outline: Error message is displayed when clicking Get Started button for data structures modules without login
+Given User is on the home page
+When The user clicks "<modules>" Get Started button
+Then The user should able to see a warning message "You are not logged in"
+
+Examples:
+|   modules    |
+|data-structures-introduction |
+|  array		|
+|  linked-list  |
+|  stack        |
+|  queue        |
+|  tree         |
+|  graph        |
+
