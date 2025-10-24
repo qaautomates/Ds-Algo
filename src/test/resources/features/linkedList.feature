@@ -1,7 +1,7 @@
 Feature: Linked List data structure 
 
 Background: 
-Given User logged in to the ds algo portal and on home page
+Given User logged in to the ds algo portal and on home page for LinkedList
 
 Scenario: Verify that user is able to navigate to Linked List datastructure page from Get Started Link 
 When The user clicks the Get Started button in Linked List Panel
@@ -43,9 +43,10 @@ Examples:
 
 Scenario Outline: User enters valid/invalid python code in Try Editor for different sub modules in LinkedList 
 Given The user is in the "<moduleLink>" page for LinkedList datastructure
+When The user clicks Try here button for LinkedList datastructure
 When The user enters input from Excel sheet "<sheet>" with testcaseId "<testId>" in text area for LinkedList datastructure
 And The user clicks Run button for LinkedList datastructure
-Then The user should be able to see the expected output from excel sheet for LinkedList datastructure
+Then The user should be able to see the expected output from excel sheet "<sheet>" with "<testId>" for LinkedList
 
 Examples:
 |   sheet     | testId  |      moduleLink	    |
@@ -77,7 +78,6 @@ Examples:
 |  pythonCode |  TC002  |    Deletion       |
 |  pythonCode |  TC003  |    Deletion       |
 
-
 Scenario Outline: Verify that user is able to navigate to Practice Questions links from LinkedList page  
 Given The user is in the "<moduleLink>" page for LinkedList datastructure
 When The user clicks "Practice Questions" link for LinkedList datastructure
@@ -92,34 +92,4 @@ Examples:
 |       Traversal		    |
 | 		Insertion           |
 |       Deletion            |
-
-Scenario Outline: Verify that user is able to navigate to different links of LinkedList practice questions page  
-Given The user is in the "practice questions" page for LinkedList datastructure
-When The user clicks "<moduleLink>" link for LinkedList datastructure
-Then The user should be redirected to "<expected_Question>" url for LinkedList datastructure
-
-Examples:
-|       link          |    expected_Question  		|
-|    Search the array |  		search		|
-|    Max Consecutive Ones  |  findMaxConsecutiveOnes	|
-|   Find Numbers with Even Number of Digits  |  findNumbers	|
-|   Squares of  a Sorted Array  |  sortedSquares	|
-
-Scenario Outline: User enters valid/invalid python code for LinkedList practice questions and verifies the output
-Given The user is on the LinkedList practice question editor for "<question_link>" 
-When The user write the "<Testcase_ID>" python code in Editor from excel "<sheetName>" for LinkedList
-And The user clicks Run button for LinkedList datastructure
-And The user clicks submit button for LinkedList datastructure
-Then User should be able to verify the output from the excel sheet for LinkedList datastructure
-Examples:
-|question_link 		|		sheetName       |		Testcase_ID	|			
-|Search the array	|	practice qns		|	TC001	|	
-|Search the array	|	practice qns		|	TC002	|	
-|Max Consecutive Ones 	|	practice qns		|	TC001	|	
-|Max Consecutive Ones 	|	practice qns		|	TC002	|	
-|Find Numbers with Even Number of Digits   	|	practice qns		|	TC001	|	
-|Find Numbers with Even Number of Digits   	|	practice qns		|	TC002	|
-| Squares of  a Sorted Array   	|	practice qns		|	TC001	|	
-| Squares of  a Sorted Array   	|	practice qns		|	TC002	|
-		
 
