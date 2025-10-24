@@ -10,7 +10,6 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pageobjects.Helper;
 import pageobjects.StackPage;
-//import utilities.LoggerLoad;
 
 public class Stack_StepDefinition {
 
