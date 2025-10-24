@@ -3,12 +3,13 @@ Feature: Stack data structure page
 
 Background: 
 Given User logged in to ds algo portal and is on home page for Stack
+
 Scenario: Verify that user should be navigated to Stack datastructure page from get started link 
 When User must click get started button in Stack Panel
 Then User will be navigated to Stack Data Structure page
 
 Scenario: Verify that user is able to navigate to Stack datastructure page from dropdown 
-When The user select Stack item from the drop down menu
+When The user select "Stack" item from the drop down menu
 Then The user should be directed to Stack Data Structure Page
 
 Scenario Outline: Verify that user is able to navigate to different links in Stack page 
@@ -20,7 +21,7 @@ Examples:
 |       link          |      expected_title   |
 | Operations in Stack |  Operations in Stack  |
 | Implementation      |  Implementation   	  |
-| Applications        |  stack-applications	  |
+| Applications        |  Applications	  |
 
 Scenario Outline: Verify user is able to navigate to Try Editor page for different links from Stack page 
 Given User is in the stack "<link>" page 
@@ -35,9 +36,10 @@ Examples:
 
 Scenario Outline: User enters valid/invalid python code in Try Editor for different sub modules in Stack 
 Given The user is in "<moduleLink>" module in stack page
-When User enter input from Excel sheet "<sheet>" with testcaseId "<testId>" in text area for Stack
+When The user clicks Try here button in Stack
+And User enter input from Excel sheet "<sheet>" with testcaseId "<testId>" in text area for Stack
 And User clicks on the Run button for Stack
-Then User should able to see the expected output from excel sheet for Stack
+Then User should be able to see the expected output from excel sheet "<sheet>" with testcaseId "<testId>" for Stack
 
 Examples:
 |   sheet     | testId |  moduleLink	|

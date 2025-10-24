@@ -7,17 +7,18 @@ When The user clicks get started button in Tree panel
 Then User should be navigated to Tree Data Structure page
 
 Scenario: Verify the user is able to navigate to Tree Data Structure from dropdown
-When User selects Tree item from the dropdown menu
+When User selects "Tree" item from the dropdown menu
 Then  User should be redirected to Tree Data structures page
 
 Scenario Outline: Verify that the user is able to navigate to different links in Tree page
 Given The  use user is in Tree page
-When  User clicks "<Link>" in the tree page
+When  User clicks "<link>" in the tree page
 Then  The useer should be redirected to corresponding "<expected_Title>" page
 
 Examples:
 
 |			link			|	expected_Tilte		|
+
 |	Overview of Trees		|	Overview of Trees	|
 |	Terminologies			|	Terminologies		|
 |	Types of Trees			|	Types of Trees		|
@@ -57,12 +58,13 @@ Examples:
 
 Scenario Outline: User enters valid/invalid python code in Try Editor for different sub modules in Tree 
 Given The user is in "<moduleLink>" in Tree page
-When User enters input from Excel sheet "<sheet>" with testcaseId "<testId>" in text area 
+When The user clicks Try here button
+And User enters input from Excel sheet "<sheet>" with testcaseId "<testId>" in text area 
 And User clicks Run button 
-Then User should be able to see the expected output from excel sheet
+Then The user should be able to see the expected output from excel sheet "<sheet>" with testcaseId "<testId>" for corresponding python code
 
 Examples:
-
+|	sheet		|	testId	|		moduleLink	|
 |  pythonCode |  TC001  |   Overview of Trees	| 
 |  pythonCode |  TC002  |   Overview of Trees	|
 |  pythonCode |  TC003  |   Overview of Trees	|
@@ -113,25 +115,4 @@ Examples:
 |  pythonCode |  TC001  |   Implementation Of BST	| 
 |  pythonCode |  TC002  |   Implementation Of BST	|
 |  pythonCode |  TC003  |   Implementation Of BST	|
-
-Scenario Outline: Verify that user is able to navigate to Practice Questions links from Tree page  
-Given User is in this "<link>"
-When User clicks Practice Questions 
-Then User should be redirected to the "Practice Questions" page
-
-Examples:
-|       link          		|   
-|	Overview of Trees		|
-|	Terminologies			|	
-|	Types of Trees			|	
-|	Tree Traversals			|	
-|	Traversals-Illustration	|	
-|	Binary Trees			|	
-|	Types of Binary Trees	|	
-|	Implementation in Python |	
-|	Binary Tree Traversals	 |	
-|	Implementation of Binary Trees	|	
-|	Applications of Binary trees	|	
-|	Binary Search Trees		|		
-|	Implementation Of BST	|
 
