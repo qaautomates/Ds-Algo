@@ -2,9 +2,7 @@ package stepDefinition;
 
 import java.io.IOException;
 import java.util.HashMap;
-
 import org.testng.Assert;
-
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -48,6 +46,7 @@ public class Login_StepDefinition extends BaseClass{
 	@When("The user clicks login button after entering valid username as {string} and valid password as {string}")
 	public void the_user_clicks_login_button_after_entering_valid_username_as_and_valid_password_as(String userName, String passWord) {
 	  loginPage.enterCredentials(userName, passWord);
+	  loginPage.clickLogin();
 	}
 
 	@When("The user clicks login button with valid credentials from sheet {string} with {string}")
@@ -63,34 +62,41 @@ public class Login_StepDefinition extends BaseClass{
 		System.out.println(loginPage.verifyMessage());
 		
 	}
-	
-	@When("The user enters the {string} and password as {string}")
-	public void the_user_enters_the_and_password_as(String string, String string2) {
-	    
+	//Invalid credentials
+	@When("The user enters the username {string} and password as {string}")
+	public void the_user_enters_the_username_and_password_as(String userName, String passWord) {
+		loginPage.invalidCredentials(userName, passWord);
+		
 	}
 
 	@When("The user clicks the login button")
 	public void the_user_clicks_the_login_button() {
-	    
+		loginPage.clickLogin();
 	}
 
 	@Then("User should be able to see the expected message as {string}")
 	public void user_should_be_able_to_see_the_expected_message_as(String string) {
 	    
+		
 	}
 
 	@Given("The user is on the Home page after Sign in")
 	public void the_user_is_on_the_home_page_after_sign_in() {
-	    
+		//helper.homeGetStartedBtn();
+		helper.clickSignIn();
+		helper.login();
+	
+		//Assert.assertEquals(helper.getTitle(), "NumpyNinja");
 	}
 
 	@When("The user clicks Sign out link")
 	public void the_user_clicks_sign_out_link() {
-	    
+	    loginPage.clickSignout();
 	}
 
 	@Then("The user should be redirected to home page with message {string}")
 	public void the_user_should_be_redirected_to_home_page_with_message(String string) {
-	    
+		Assert.assertEquals(helper.getTitle(), "NumpyNinja");
+		loginPage.signoutMessage();
 	}
 }
