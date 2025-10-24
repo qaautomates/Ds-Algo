@@ -27,11 +27,22 @@ public class ConfigReader {
 		}
 	}
 
+	public static Properties getProp() {
+		return prop;
+	}
+	
 	public static String getProperty(String key) {
 		if (prop == null) {
 			throw new RuntimeException("Config file is not loaded");
 		}
 		return prop.getProperty(key);
+	}
+	
+	public static void setBrowserType(String browserName) {
+		if (prop == null) {
+			throw new RuntimeException("Config file is not loaded");
+		}
+		prop.setProperty("browser", browserName);
 	}
 
 }
