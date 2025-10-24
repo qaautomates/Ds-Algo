@@ -5,6 +5,8 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.HashMap;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.apache.poi.ss.usermodel.DataFormatter;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFCell;
@@ -13,6 +15,7 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class ExcelSheetHandling {
+	private static Logger logger = LogManager.getLogger();
 	public FileInputStream fis;
 	public XSSFWorkbook wb;
 	public XSSFSheet sheet;
@@ -27,11 +30,11 @@ public class ExcelSheetHandling {
 				try {
 					this.wb = new XSSFWorkbook(fis);
 				} catch (IOException e) {
-					LoggerLoad.error("IO exception for file:" + xlfilePath);
+					logger.error("IO exception for file:" + xlfilePath);
 					e.printStackTrace();
 				}
 			} catch (FileNotFoundException e) {
-				LoggerLoad.error("File not found exception for file:" + xlfilePath);
+				logger.error("File not found exception for file:" + xlfilePath);
 				e.printStackTrace();
 			}
 	}
@@ -46,7 +49,7 @@ public class ExcelSheetHandling {
 			Row row = sheet.getRow(i);
 			String testId = formatter.formatCellValue(row.getCell(0));
 			if (testId.equalsIgnoreCase(testCaseId)) {
-				LoggerLoad.info("Excel sheet reading for testId: " + testCaseId + " successful");
+				logger.info("Excel sheet reading for testId: " + testCaseId + " successful");
 				for (int j = 1; j <= row.getLastCellNum(); j++) {
 					String key = formatter.formatCellValue(header.getCell(j)).trim();
 					String value = formatter.formatCellValue(row.getCell(j)).trim();
