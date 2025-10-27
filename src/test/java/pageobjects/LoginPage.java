@@ -9,14 +9,12 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
-import stepDefinition.Hooks;
-//import utilities.DriverFactory;
-
 
 public class LoginPage {
 
 	
 	public WebDriver driver;
+	private Helper helper;
 	
 	@FindBy(linkText = "Sign in") WebElement signIn;
 	@FindBy(name = "username")  WebElement username;
@@ -26,8 +24,9 @@ public class LoginPage {
 	@FindBy(xpath = "//input[@type='submit']") WebElement loginbtn;
 	@FindBy(xpath = "//a[@href='/logout']") WebElement signOut;
 	
-	public LoginPage(WebDriver driver) {
+	public LoginPage(WebDriver driver, Helper helper) {
 		this.driver = driver;
+		this.helper = helper;
 		PageFactory.initElements(driver,this);
 	}
 	
@@ -57,6 +56,15 @@ public class LoginPage {
 
 	public void clickLogin() {
 		loginbtn.click();
+	}
+	
+	public void clickHomeGetStartedBtn() {
+		helper.homeGetStartedBtn();
+	}
+	
+	public void readActualMsg() {
+		
+		helper.readActualOutput();
 	}
 	
 	public void clickSignout() {
