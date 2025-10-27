@@ -1,7 +1,9 @@
 package stepDefinition;
 
 import java.io.IOException;
+import java.time.Duration;
 import java.util.HashMap;
+
 import org.testng.Assert;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -15,7 +17,7 @@ public class Login_StepDefinition extends BaseClass{
 	Helper helper;
 	
 	public Login_StepDefinition() {
-		loginPage = new LoginPage(Hooks.driver);
+		loginPage = new LoginPage(Hooks.driver, helper);
 		helper = new Helper(Hooks.driver);
 	 }
 	
@@ -29,7 +31,7 @@ public class Login_StepDefinition extends BaseClass{
 
 	@When("User clicks the Get Started button")
 	public void user_clicks_the_get_started_button() {
-		helper.homeGetStartedBtn();
+		loginPage.clickHomeGetStartedBtn();
 	}
 
 	@Then("User is in the home page")
@@ -77,16 +79,15 @@ public class Login_StepDefinition extends BaseClass{
 	@Then("User should be able to see the expected message as {string}")
 	public void user_should_be_able_to_see_the_expected_message_as(String string) {
 	    
-		
+		Assert.assertEquals(loginPage.verifyMessage(), string);
 	}
 
 	@Given("The user is on the Home page after Sign in")
 	public void the_user_is_on_the_home_page_after_sign_in() {
-		//helper.homeGetStartedBtn();
-		helper.clickSignIn();
+		
+		loginPage.clickSignIn();
 		helper.login();
-	
-		//Assert.assertEquals(helper.getTitle(), "NumpyNinja");
+		Assert.assertEquals(helper.getTitle(), "NumpyNinja");
 	}
 
 	@When("The user clicks Sign out link")
