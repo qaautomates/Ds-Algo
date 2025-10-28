@@ -3,6 +3,7 @@ package stepDefinition;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
+import org.testng.annotations.Parameters;
 
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
@@ -17,22 +18,21 @@ public class Hooks {
 
 	@BeforeAll
 	public static void loadConfigProp() {
-		System.out.println("Load config Prop");
 		if (ConfigReader.getProp() == null) {
 			ConfigReader.loadProperties();
-			System.out.println("browser:" + ConfigReader.getProperty("browser"));
 		}
-	
 	}
+	
 	@Before
 	public void setUp(Scenario scenario) {
 		logger.info("Executing scenario: " + scenario.getName());		
-		//ConfigReader.loadProperties();
+		
 		String browser = DriverFactory.getBrowserName();
+		System.out.println("Set browser type from before setup:" + browser);
 		if (browser == null) {
 			browser = ConfigReader.getProperty("browser");
 		}
-		driver = DriverFactory.inItBrowser(browser);
+		driver = DriverFactory.inItBrowser();
 		driver.get(ConfigReader.getProperty("url"));
 	}
 	
