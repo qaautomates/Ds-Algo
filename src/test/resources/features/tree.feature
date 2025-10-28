@@ -17,7 +17,7 @@ Then  The useer should be redirected to corresponding "<expected_Title>" page
 
 Examples:
 
-|			link			|	expected_Tilte		|
+|			link			|	expected_Title		|
 
 |	Overview of Trees		|	Overview of Trees	|
 |	Terminologies			|	Terminologies		|
