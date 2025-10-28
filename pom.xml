@@ -93,11 +93,6 @@
         			<suiteXmlFiles>
         				<suiteXmlFile>testng.xml</suiteXmlFile>
         			</suiteXmlFiles>
-        			<properties>
-        				<dataProviderThreadCount>3</dataProviderThreadCount>
-        				<parallel>tests</parallel>
-        				<threadCount>2</threadCount>
-        			</properties>
 				</configuration>
 			</plugin>
 		</plugins>
