@@ -10,6 +10,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pageobjects.Helper;
 import pageobjects.LoginPage;
+import utilities.DriverFactory;
 import utilities.ExcelSheetHandling;
 
 public class Login_StepDefinition extends BaseClass{
@@ -17,8 +18,8 @@ public class Login_StepDefinition extends BaseClass{
 	Helper helper;
 	
 	public Login_StepDefinition() {
-		loginPage = new LoginPage(Hooks.driver, helper);
-		helper = new Helper(Hooks.driver);
+		loginPage = new LoginPage(DriverFactory.getDriver(), helper);
+		helper = new Helper(DriverFactory.getDriver());
 	 }
 	
 	// Background
