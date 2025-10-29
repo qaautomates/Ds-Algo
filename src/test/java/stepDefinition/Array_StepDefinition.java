@@ -1,19 +1,19 @@
 package stepDefinition;
 
 import java.io.IOException;
-import java.util.HashMap;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
-
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pageobjects.ArrayPage;
 import pageobjects.Helper;
 import utilities.DriverFactory;
-import utilities.ExcelSheetHandling;
 
 public class Array_StepDefinition {
+	private static Logger logger = LogManager.getLogger();
 	private ArrayPage arrayPage;
 	Helper helper;
 
@@ -36,16 +36,19 @@ public class Array_StepDefinition {
 	@Then("The user should navigate to Array Data Structure Page")
 	public void the_user_should_navigate_to_array_data_structure_page() {
 		Assert.assertEquals(helper.getTitle(), "Array");
+		logger.info("Navigated to Array datastructure page");
 	}
 
 	@When("The user select {string} item from the drop down menu")
 	public void the_user_select_item_from_the_drop_down_menu(String string) {
 		arrayPage.selectArrayFromDropDown(string);
+		logger.info("Selected array from dropdown menu");
 	}
 
 	@Then("The user should be directed to Array Data Structure Page")
 	public void the_user_should_be_directed_to_array_data_structure_page() {
 		Assert.assertEquals(helper.getTitle(), "Array");
+		logger.info("Navigated to array data structure page");
 	}
 
 	@Given("The user is in the Array page")
@@ -56,17 +59,20 @@ public class Array_StepDefinition {
 	@When("The user clicks {string} link")
 	public void the_user_clicks_link(String string) {
 		arrayPage.arrayClickLink(string);
+		logger.info("Clicked array submodule link " + string);
 	}
 
 	@Then("The user should be redirected to {string} page")
 	public void the_user_should_be_redirected_to_page(String string) {
 		Assert.assertEquals(helper.getTitle(), string);
+		logger.info("Redirected to " + string + " page");
 	}
 
 	@Given("The user is in the {string} page")
 	public void the_user_is_in_the_page(String string) {
 		arrayPage.arrayGetStarted();
 		arrayPage.arrayClickLink(string);
+		logger.info("Clicked array submodule" + string);
 	}
 
 	@When("The user clicks Try here button")
@@ -77,13 +83,14 @@ public class Array_StepDefinition {
 	@Then("The user should be redirected to Assessment page")
 	public void the_user_should_be_redirected_to_assessment_page() {
 		Assert.assertEquals(helper.getTitle(), "Assessment");
+		logger.info("Redirected to assessment page");
 
 	}
 
-	@Given("The user is in {string} in array page for {string}")
-	public void the_user_is_in_in_array_page_for(String string, String string2) {
-		arrayPage.arrayClickLink(string);
-		// need to specify type of scenario whether pass or fail
+	@When("The user enters input from Excel sheet {string} with testcaseId {string} in text area")
+	public void the_user_enters_input_from_excel_sheet_with_testcase_id_in_text_area(String sheet, String testcase_id) throws Exception {
+		arrayPage.enterArrayPythonCode(sheet, testcase_id);
+		logger.info("Python code entered for testcase:" + testcase_id);
 	}
 
 	@When("The user clicks Run button")
@@ -96,24 +103,23 @@ public class Array_StepDefinition {
 		String expected = arrayPage.readExpectedOutputForArray(sheet, testId);
 		String actual = arrayPage.getActualOutputForArray();
 		Assert.assertEquals(expected, actual, "Expected and actual output for python code run is not same");
+		logger.info("Actual output for python code run is verified for testcase:" + testId);
 	}
-
+	
 	@Given("The user is in the {string}")
 	public void the_user_is_in_the(String string) {
 		arrayPage.arrayGetStarted();
 		arrayPage.arrayClickLink(string);
+		logger.info("Clicked link for array submodule " + string);
 	}
 
 	@When("The user clicks Practice Questions link")
 	public void the_user_clicks_practice_questions_link() {
 		arrayPage.arrayClickLink("Practice Questions");
+		logger.info("Clicked practice question link for array");
 	}
 
-	@When("The user enters input from Excel sheet {string} with testcaseId {string} in text area")
-	public void the_user_enters_input_from_excel_sheet_with_testcase_id_in_text_area(String sheet, String testcase_id) throws Exception {
-		arrayPage.enterArrayPythonCode(sheet, testcase_id);
-	}
-
+	
 	@Given("The user is in practice questions page")
 	public void the_user_is_in_practice_questions_page() {
 		arrayPage.moveToPracticeQuestionsPage();	
@@ -122,6 +128,7 @@ public class Array_StepDefinition {
 	@Then("The user should be redirected to {string} assessment page")
 	public void the_user_should_be_redirected_to_assessment_page(String string) {
 	    Assert.assertEquals(arrayPage.getAssessmentQuestion(), string); 
+	    logger.info("Redirected to assessment page for " + string);
 	}
 	
 	@Given("The user is on the practice question editor for {string}")
@@ -129,15 +136,15 @@ public class Array_StepDefinition {
 	    arrayPage.moveToPracticeQuestionsEditor(string);
 	}
 
-	@When("The user clicks submit button")
-	public void the_user_clicks_submit_button() {
-	   // arrayPage.clickArraySubmitBtn();
-	}
-
-
 	@When("The user write the {string} python code in Editor from excel {string}")
 	public void the_user_write_the_python_code_in_editor_from_excel(String testId, String sheet) throws IOException {
 		arrayPage.enterArrayPythonCode(sheet, testId);
+		logger.info("Entered python code for testcase:" + testId);
+	}
+
+	@When("The user clicks submit button")
+	public void the_user_clicks_submit_button() {
+	   // arrayPage.clickArraySubmitBtn();
 	}
 
 	@Then("User should be able to verify the output from the excel sheet {string} with {string}")
@@ -145,6 +152,7 @@ public class Array_StepDefinition {
 		String expected = arrayPage.readExpectedOutputForArray(sheet, testId);
 		String actual = arrayPage.getActualOutputForArray();
 		Assert.assertEquals(expected, actual, "Expected and actual output for python code run is not same");
+		logger.info("Actual output for python code verified for testcase:" + testId);
 	}
 
 }
