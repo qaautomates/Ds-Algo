@@ -11,6 +11,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pageobjects.DataStructurePage;
 import pageobjects.Helper;
+import utilities.DriverFactory;
 
 
 public class DataStructure_StepDefinition {
@@ -20,8 +21,8 @@ public class DataStructure_StepDefinition {
 	Helper helper;
 	
 	public DataStructure_StepDefinition() {
-		helper = new Helper(Hooks.driver);
-		datastructurePage = new DataStructurePage(Hooks.driver, helper);
+		helper = new Helper(DriverFactory.getDriver());
+		datastructurePage = new DataStructurePage(DriverFactory.getDriver(), helper);
 	}
 	
 	@Given("User is logged in to the DS Algo portal and on home page")

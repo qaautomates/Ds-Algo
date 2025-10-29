@@ -16,7 +16,7 @@ Then The "<expected_title>" page for Data Structures Introduction should be disp
       | link             | expected_title   |
       | Time Complexity  | Time Complexity  |
 
- 
+
 Scenario Outline: Verify user can open the Try Editor page from links within the Data Structures Introduction page
 Given The user is viewing the "<link>" section under the Data Structures Introduction module
 When The user clicks on the Try Here button below
@@ -27,12 +27,12 @@ Then The system should navigate the user to the Try Editor page for Data Structu
       | Time Complexity |
 
   
- Scenario Outline: Validate user’s ability to execute python code in Try Editor for Data Structures Introduction topics
- Given The user is in the "<topic>" section of the Data Structures Introduction page
- When The user clicks Try here button in Data Structures Introduction page
- And The user enters the python code from Excel sheet "<sheet>" with testcaseId "<testId>" in Data Structures intro
- And The user clicks the Run button within the Try Editor of Data Structures Introduction
- Then The output displayed should match the expected result in the Excel data "<sheet>" with testcaseId "<testId>" for Data Structure intro
+Scenario Outline: Validate user’s ability to execute python code in Try Editor for Data Structures Introduction topics
+Given The user is in the "<topic>" section of the Data Structures Introduction page
+When The user clicks Try here button in Data Structures Introduction page
+And The user enters the python code from Excel sheet "<sheet>" with testcaseId "<testId>" in Data Structures intro
+And The user clicks the Run button within the Try Editor of Data Structures Introduction
+Then The output displayed should match the expected result in the Excel data "<sheet>" with testcaseId "<testId>" for Data Structure intro
 
     Examples:
       | sheet       | testId | topic           |
