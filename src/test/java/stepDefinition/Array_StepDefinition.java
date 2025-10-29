@@ -10,15 +10,16 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pageobjects.ArrayPage;
 import pageobjects.Helper;
+import utilities.DriverFactory;
 import utilities.ExcelSheetHandling;
 
-public class Array_StepDefinition extends BaseClass {
+public class Array_StepDefinition {
 	private ArrayPage arrayPage;
 	Helper helper;
 
 	public Array_StepDefinition() {
-		helper = new Helper(Hooks.driver);
-		arrayPage = new ArrayPage(Hooks.driver, helper);
+		helper = new Helper(DriverFactory.getDriver());
+		arrayPage = new ArrayPage(DriverFactory.getDriver(), helper);
 	}
 
 	// Background

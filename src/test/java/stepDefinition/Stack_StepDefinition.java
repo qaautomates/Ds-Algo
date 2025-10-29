@@ -10,16 +10,17 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pageobjects.Helper;
 import pageobjects.StackPage;
+import utilities.DriverFactory;
 
 public class Stack_StepDefinition {
 
 	private static Logger logger = LogManager.getLogger();
-	private StackPage stackPage;
+	StackPage stackPage;
 	Helper helper;
 
 	public Stack_StepDefinition() {
-		helper = new Helper(Hooks.driver);
-		stackPage = new StackPage(Hooks.driver, helper);
+		helper = new Helper(DriverFactory.getDriver());
+		stackPage = new StackPage(DriverFactory.getDriver(), helper);
 	}
 
 	//Backgroud
