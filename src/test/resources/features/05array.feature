@@ -53,17 +53,17 @@ Examples:
 |  pythonCode |  TC002  |   Arrays in Python	|
 |  pythonCode |  TC003  |   Arrays in Python	|
 
-|  pythonCode |  TC001  |    Arrays Using List	| 
-|  pythonCode |  TC002  |    Arrays Using List	|
-|  pythonCode |  TC003  |    Arrays Using List	|
+#|  pythonCode |  TC001  |    Arrays Using List	| 
+#|  pythonCode |  TC002  |    Arrays Using List	|
+#|  pythonCode |  TC003  |    Arrays Using List	|
 
-|  pythonCode |  TC001  |   Basic Operations in Lists	| 
-|  pythonCode |  TC002  |   Basic Operations in Lists	|
-|  pythonCode |  TC003  |   Basic Operations in Lists	|
+#|  pythonCode |  TC001  |   Basic Operations in Lists	| 
+#|  pythonCode |  TC002  |   Basic Operations in Lists	|
+#|  pythonCode |  TC003  |   Basic Operations in Lists	|
 
-|  pythonCode |  TC001  |  Applications of Array	| 
-|  pythonCode |  TC002  |  Applications of Array	|
-|  pythonCode |  TC003  |  Applications of Array	|
+#|  pythonCode |  TC001  |  Applications of Array	| 
+#|  pythonCode |  TC002  |  Applications of Array	|
+#|  pythonCode |  TC003  |  Applications of Array	|
 
 
 Scenario Outline: Verify that user is able to navigate to Practice Questions links from Arrays page  
@@ -74,9 +74,9 @@ Then The user should be redirected to "Practice Questions" page
 Examples:
 |       link          |      
 |    Arrays in Python |  
-|    Arrays Using List  |  
-|   Basic Operations in Lists  |  
-|   Applications of Array  |  
+#|    Arrays Using List  |  
+#|   Basic Operations in Lists  |  
+#|   Applications of Array  |  
 
 @practicePage
 
@@ -88,9 +88,9 @@ Then The user should be redirected to "<expected_Question>" assessment page
 Examples:
 |       link          |    expected_Question  		|
 |    Search the array |  		search		|
-|    Max Consecutive Ones  |  findMaxConsecutiveOnes	|
-|   Find Numbers with Even Number of Digits  |  findNumbers	|
-|   Squares of  a Sorted Array  |  sortedSquares	|
+#|    Max Consecutive Ones  |  findMaxConsecutiveOnes	|
+#|   Find Numbers with Even Number of Digits  |  findNumbers	|
+#|   Squares of  a Sorted Array  |  sortedSquares	|
 
 @practicePage
 
@@ -105,14 +105,14 @@ Examples:
 |Search the array	|	Practice Questions	|	TC001	|	
 |Search the array	|	Practice Questions	|	TC002	|	
 |Search the array	|	Practice Questions	|	TC003	|
-|Max Consecutive Ones 	|	Practice Questions	|	TC001	|	
-|Max Consecutive Ones 	|	Practice Questions	|	TC002	|	
-|Max Consecutive Ones 	|	Practice Questions	|	TC003	|
-|Find Numbers with Even Number of Digits   	|	Practice Questions	|	TC001	|	
-|Find Numbers with Even Number of Digits   	|	Practice Questions	|	TC002	|
-|Find Numbers with Even Number of Digits   	|	Practice Questions	|	TC003	|
-| Squares of  a Sorted Array   	|	Practice Questions	|	TC001	|	
-| Squares of  a Sorted Array   	|	Practice Questions	|	TC002	|
-| Squares of  a Sorted Array   	|	Practice Questions	|	TC003	|
+#|Max Consecutive Ones 	|	Practice Questions	|	TC001	|	
+#|Max Consecutive Ones 	|	Practice Questions	|	TC002	|	
+#|Max Consecutive Ones 	|	Practice Questions	|	TC003	|
+#|Find Numbers with Even Number of Digits   	|	Practice Questions	|	TC001	|	
+#|Find Numbers with Even Number of Digits   	|	Practice Questions	|	TC002	|
+#|Find Numbers with Even Number of Digits   	|	Practice Questions	|	TC003	|
+#| Squares of  a Sorted Array   	|	Practice Questions	|	TC001	|	
+#| Squares of  a Sorted Array   	|	Practice Questions	|	TC002	|
+#| Squares of  a Sorted Array   	|	Practice Questions	|	TC003	|
 		
 
