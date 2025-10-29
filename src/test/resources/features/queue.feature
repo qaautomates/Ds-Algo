@@ -8,7 +8,7 @@ Feature: Queue data structure
     Then The user should navigate to Queue Data Structure Page
 
   Scenario: Verify that user is able to navigate to Queue Data Structure page from dropdown
-    When The user selects Queue item from the drop down menu
+    When The user selects Queue item from the drop down menu "Queue"
     Then The user should be directed to Queue Data Structure Page
 
   Scenario Outline: Verify navigation to various links within the Queue module
@@ -38,20 +38,26 @@ Feature: Queue data structure
       | Queue Operations                       |
 
 
-  Scenario Outline: Verify Python code execution in Try Editor for Queue submodules
-  Given The user has opened the Try Editor for "<moduleLink>" in Queue
-  When The user enters the code from Excel sheet "<sheet>" with testId "<testId>"
-  And The user clicks the Run button in Queue editor
-  Then The user should see the expected output from the Excel sheet displayed
-
+    Scenario Outline: User enters valid/invalid python code in Try Editor for different submodules in Queue
+    Given The user is in the "<moduleLink>" page in Queue
+    When The user clicks Try here button in Queue
+    And The user enters input from Excel sheet "<sheet>" with testcaseId "<testId>" in text area in Queue
+    And The user clicks Run button in Queue
+    Then The user should be able to see the expected output from Excel sheet "<sheet>" with testcaseId "<testId>" in Queue
+    
   Examples:
     | sheet      | testId | moduleLink                       |
     | pythonCode | TC001  | Implementation of Queue in Python |
     | pythonCode | TC002  | Implementation of Queue in Python |
+    | pythonCode | TC003  | Implementation of Queue in Python |
+    
     | pythonCode | TC001  | Implementation using array        |
     | pythonCode | TC002  | Implementation using array        |
+    | pythonCode | TC003  | Implementation using array        |
+    
     | pythonCode | TC001  | Queue Operations                  |
     | pythonCode | TC002  | Queue Operations                  |
+    | pythonCode | TC003  | Queue Operations                  |
 
   Scenario Outline: Verify Practice Questions navigation from Queue submodules
   Given The user has opened the "<link>" page in Queue module

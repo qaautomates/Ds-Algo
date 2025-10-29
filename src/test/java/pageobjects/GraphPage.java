@@ -16,8 +16,8 @@ import utilities.ExcelSheetHandling;
 public class GraphPage {
 
 	private static Logger logger = LogManager.getLogger();
-	private WebDriver driver;
-	private Helper helper;
+	public WebDriver driver;
+	public Helper helper;
 	
 	@FindBy(linkText ="Sign in" ) WebElement signinBtn;
 	

@@ -18,8 +18,9 @@ public class Login_StepDefinition extends BaseClass{
 	Helper helper;
 	
 	public Login_StepDefinition() {
-		loginPage = new LoginPage(DriverFactory.getDriver(), helper);
 		helper = new Helper(DriverFactory.getDriver());
+		loginPage = new LoginPage(DriverFactory.getDriver(), helper);
+		
 	 }
 	
 	// Background
@@ -66,8 +67,8 @@ public class Login_StepDefinition extends BaseClass{
 		
 	}
 	//Invalid credentials
-	@When("The user enters the username {string} and password as {string}")
-	public void the_user_enters_the_username_and_password_as(String userName, String passWord) {
+	@When("The user enters the {string} and password as {string}")
+	public void the_user_enters_the_and_password_as(String userName, String passWord) {
 		loginPage.invalidCredentials(userName, passWord);
 		
 	}
@@ -78,9 +79,11 @@ public class Login_StepDefinition extends BaseClass{
 	}
 
 	@Then("User should be able to see the expected message as {string}")
-	public void user_should_be_able_to_see_the_expected_message_as(String string) {
-	    
-		Assert.assertEquals(loginPage.verifyMessage(), string);
+	public void user_should_be_able_to_see_the_expected_message_as(String expectedMessage) {
+		 String actualMessage = loginPage.geterrorMsg(); // ✅ Calling getMessage() here
+	        System.out.println("Actual message: " + actualMessage);
+	        Assert.assertEquals(actualMessage, expectedMessage, "Login validation message mismatch!");
+		//Assert.assertEquals(loginPage.verifyMessage(), string);
 	}
 
 	@Given("The user is on the Home page after Sign in")
@@ -97,8 +100,11 @@ public class Login_StepDefinition extends BaseClass{
 	}
 
 	@Then("The user should be redirected to home page with message {string}")
-	public void the_user_should_be_redirected_to_home_page_with_message(String string) {
-		Assert.assertEquals(helper.getTitle(), "NumpyNinja");
-		loginPage.signoutMessage();
+	public void the_user_should_be_redirected_to_home_page_with_message(String expectedMessage) {
+		 String actualMessage = loginPage.signoutMessage();
+	        System.out.println("Logout message: " + actualMessage);
+	        Assert.assertEquals(actualMessage, expectedMessage, "Logout message mismatch!");
+		//Assert.assertEquals(helper.getTitle(), "NumpyNinja");
+		//loginPage.signoutMessage();
 	}
 }

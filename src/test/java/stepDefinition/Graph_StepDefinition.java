@@ -11,16 +11,18 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pageobjects.GraphPage;
 import pageobjects.Helper;
+import utilities.DriverFactory;
+
 
 public class Graph_StepDefinition {
 	
 	private static Logger logger = LogManager.getLogger();
-	private GraphPage graphPage;
+	GraphPage graphPage;
 	Helper helper;
 	
 	public Graph_StepDefinition() {
-		helper = new Helper(Hooks.driver);
-		graphPage = new GraphPage(Hooks.driver, helper);
+		helper = new Helper(DriverFactory.getDriver());
+		graphPage = new GraphPage(DriverFactory.getDriver(), helper);
 	}
 	
 	//Background
