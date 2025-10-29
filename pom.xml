@@ -93,6 +93,9 @@
         			<suiteXmlFiles>
         				<suiteXmlFile>testng.xml</suiteXmlFile>
         			</suiteXmlFiles>
+        			<properties>
+        				<dataproviderthreadcount>6</dataproviderthreadcount>
+        			</properties>
 				</configuration>
 			</plugin>
 		</plugins>
