@@ -11,13 +11,13 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import utilities.LoggerLoad;
+//import utilities.LoggerLoad;
 
 public class StackPage {
 
 	private static Logger logger = LogManager.getLogger();
-		private WebDriver driver;
-		private Helper helper;
+		public WebDriver driver;
+		public Helper helper;
 		
 		@FindBy(linkText ="Sign in" ) WebElement signinBtn;
 		
