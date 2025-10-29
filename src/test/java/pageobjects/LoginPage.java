@@ -1,5 +1,6 @@
 package pageobjects;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -23,7 +24,8 @@ public class LoginPage {
 	@FindBy(xpath = "//div[@class='alert alert-primary']") WebElement alertMessage;
 	@FindBy(xpath = "//input[@type='submit']") WebElement loginbtn;
 	@FindBy(xpath = "//a[@href='/logout']") WebElement signOut;
-	
+	//private By successMessage = By.xpath("//div[contains(text(),'Logged out successfully')]");
+	@FindBy(xpath= "//div[contains(text(),'Logged out successfully')]") WebElement successMessage;
 	public LoginPage(WebDriver driver, Helper helper) {
 		this.driver = driver;
 		this.helper = helper;
@@ -67,15 +69,49 @@ public class LoginPage {
 		helper.readActualOutput();
 	}
 	
+	public String geterrorMsg() {
+	    String message = "";
+
+	    try {
+	        
+	        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(3));
+	        Alert alert = wait.until(ExpectedConditions.alertIsPresent());
+	        message = alert.getText().trim();
+	        alert.accept();
+	        return message;
+
+	    } catch (Exception e1) {
+	        try {
+	            
+	            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(3));
+	            WebElement alert1 = wait.until(ExpectedConditions.visibilityOf(alertMessage));
+	            message = alert1.getText().trim();
+	            if (!message.isEmpty()) return message;
+	        } catch (Exception e2) {
+	            
+	            try {
+	                message = username.getAttribute("validationMessage");
+	                if (message == null || message.isEmpty()) {
+	                    message = password.getAttribute("validationMessage");
+	                }
+	            } catch (Exception e3) {
+	                message = "No message found";
+	            }
+	        }
+	    }
+
+	    return message.trim();
+	}
+	
+	
 	public void clickSignout() {
 		signOut.click();
 	}
 	
-	public void signoutMessage() {
-		
+	public String signoutMessage() {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-        WebElement logoutMessage = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='alert alert-primary']")));
-        String logoutMsg = logoutMessage.getText();
-        System.out.println("Logout Message: " + logoutMsg);
+	    wait.until(ExpectedConditions.visibilityOf(successMessage));
+	    
+	    return successMessage.getText().trim();
 	}
 }

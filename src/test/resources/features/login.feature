@@ -25,9 +25,9 @@ Examples:
 |				| 				|	Please fill out this field.	|
 |	Qaautomates4|				|	Please fill out this field.	|
 |				|	September2025$	|	Please fill out this field.	|
-|	invalid  	| 	invalid 	|	Invalid Username and Password	|
+|	invalid  	| 	invalid 		|	Invalid Username and Password	|
 |	invalid  	| 	September2025 	|	Invalid Username and Password	|
-|	Qaautomates4|		invalid		|	Please fill out this field.	|
+|	Qaautomates4|		invalid		|	Invalid Username and Password	|
 
 Scenario: Verify that user is able to sign out successfully
 Given The user is on the Home page after Sign in
