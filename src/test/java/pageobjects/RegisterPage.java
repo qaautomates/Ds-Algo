@@ -2,12 +2,16 @@ package pageobjects;
 
 
 	
-	import org.openqa.selenium.WebDriver;
+	import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.openqa.selenium.WebDriver;
 	import org.openqa.selenium.WebElement;
 	import org.openqa.selenium.support.FindBy;
 	import org.openqa.selenium.support.PageFactory;
 
 	public class RegisterPage {
+
+		private static Logger logger = LogManager.getLogger();
 
 		public WebDriver driver;
 
@@ -35,37 +39,61 @@ package pageobjects;
 	
 		public void clickHomeGetStartedBtn() {
 			helper.homeGetStartedBtn();
+			logger.info("User clicked on Home Get started button");
 		}
 
 		public void clickRegisterLink(String link) {
 			helper.clickLink(link);
+			logger.info("User clicked on Register Link");
+
 		}
 
 		public void clickRegisterBtn() {
 			registerBtn.click();
+			logger.info("User clicked on Register Button");
+
 		}
 
 		public String validateMessageUname() {
 
 			String validationMessage = uName.getAttribute("validationMessage");
 			System.out.println(validationMessage);
+			logger.info("User verified message"+validationMessage +" for user Name ");
+
 			return validationMessage;
+
 
 		}
 
 		public void enterUname() {
 			uName.sendKeys("qaautomates4");
+			logger.info("User enters the user name");
+
 		}
 
 		public void enterUnamePwd() {
 			uName.sendKeys("TestQA");
 			passWord.sendKeys("September2025$");
+			logger.info("User enters the password");
+
 		}
 
+		
+		public String validateMessagepassword() {
+
+			String validationMessagePwd = passWord.getAttribute("validationMessage");
+			System.out.println(validationMessagePwd);
+			logger.info("User verified message"+validationMessagePwd +" for password ");
+
+			return validationMessagePwd;
+
+		}
 		public String validateMessageCpassword() {
 
 			String validationMessage = cPassWord.getAttribute("validationMessage");
 			System.out.println(validationMessage);
+			logger.info("User verified message "+validationMessage +" for password ");
+
 			return validationMessage;
 
 		}
@@ -74,13 +102,15 @@ package pageobjects;
 			uName.sendKeys(string);
 			passWord.sendKeys(string2);
 			cPassWord.sendKeys(string3);
+			logger.info("User entered the credentials ");
+
 
 		}
 
 		public String expectedMessage() {
 
 			String expMessage = alert.getText();
-
+ 
 			return expMessage;
 		}
 	}
