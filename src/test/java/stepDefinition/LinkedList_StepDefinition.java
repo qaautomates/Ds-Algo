@@ -11,6 +11,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pageobjects.Helper;
 import pageobjects.LinkedListPage;
+import utilities.DriverFactory;
 
 public class LinkedList_StepDefinition {
 	private static Logger logger = LogManager.getLogger();
@@ -18,8 +19,8 @@ public class LinkedList_StepDefinition {
 	Helper helper;
 
 	public LinkedList_StepDefinition() {
-		helper = new Helper(Hooks.driver);
-		linkedListPage = new LinkedListPage(Hooks.driver, helper);
+		helper = new Helper(DriverFactory.getDriver());
+		linkedListPage = new LinkedListPage(DriverFactory.getDriver(), helper);
 	}
 	
 	//Background
