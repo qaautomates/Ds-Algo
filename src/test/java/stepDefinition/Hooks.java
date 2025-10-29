@@ -1,5 +1,7 @@
 package stepDefinition;
 
+import java.time.Duration;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
@@ -14,7 +16,6 @@ import utilities.DriverFactory;
 
 public class Hooks {
 	private static Logger logger = LogManager.getLogger();
-	public static WebDriver driver;
 
 	@BeforeAll
 	public static void loadConfigProp() {
@@ -26,14 +27,13 @@ public class Hooks {
 	@Before
 	public void setUp(Scenario scenario) {
 		logger.info("Executing scenario: " + scenario.getName());		
-		
 		String browser = DriverFactory.getBrowserName();
 		System.out.println("Set browser type from before setup:" + browser);
 		if (browser == null) {
 			browser = ConfigReader.getProperty("browser");
 		}
-		driver = DriverFactory.inItBrowser();
-		driver.get(ConfigReader.getProperty("url"));
+		DriverFactory.inItBrowser();
+		DriverFactory.setupBrowser();
 	}
 	
 	@After

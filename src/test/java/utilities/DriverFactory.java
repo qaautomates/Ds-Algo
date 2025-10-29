@@ -14,143 +14,64 @@ public class DriverFactory {
 	private static ThreadLocal<WebDriver> driver = new ThreadLocal<>();
 	private static ThreadLocal<String> browserName = new ThreadLocal<>();
 
-	public static WebDriver inItBrowser() {
-
-		String browserName =getBrowser();
-
-		System.out.println(browserName + "Init browser");
-
+	public static void inItBrowser() {
+		String browserName = getBrowser();
 		if (browserName.equalsIgnoreCase("Edge")) {
-
 			EdgeOptions options = new EdgeOptions();
-
 			options.addArguments("--headless");
-
-			// driver = new EdgeDriver(options);
-
-			 //driver = new EdgeDriver();
-
-		driver.set(new EdgeDriver());
-
-
+			driver.set(new EdgeDriver());
 
 		} else if (browserName.equalsIgnoreCase("Chrome")) {
-
-			//ChromeOptions options = new ChromeOptions();
-
-		//	options.addArguments("--headless=new");
-
-			// driver = new ChromeDriver(options);
-
+			ChromeOptions options = new ChromeOptions();
+			options.addArguments("--headless=new");
 			driver.set(new ChromeDriver());
-
-			//driver = new ChromeDriver();
 
 		} else if (browserName.equalsIgnoreCase("Firefox")) {
 
 			driver.set(new FirefoxDriver());
 
-
-
 		} else {
-
-
-
 			throw new IllegalArgumentException("Browser instance can not be initialized");
-
 		}
 
-	//	localDriver = (WebDriver) driver.get();
-
-	//	localDriver.manage().window().maximize();
-
-	//	localDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
-
-		return driver.get();
-
+		//return driver.get();
 	}
-
-
 
 	public static String getBrowser() {
-
-		String browser =(String)browserName.get();
-
-		Thread currentThread = Thread.currentThread();
-
-		String threadID = currentThread.getName();
-
-		System.out.println(threadID);
-
-		System.out.println("Get Browser method Browser Name : "+ browser);
-
-
+		String browser = browserName.get();
 
 		if (browser == null) {
-
 			browser = ConfigReader.getProperty("browser");
-
 		}
-
 		return browser;
-
 	}
 
-
-
 	public static WebDriver getDriver() {
-
-				if (driver.get() == null) {
-
+		if (driver.get() == null) {
 			DriverFactory.inItBrowser();
-
 		}
-
-	
-
 		return driver.get();
-
 	}
 
 	public static void quitDriver() {
-
 		if (driver.get() != null) {
-
-
-
 			driver.get().quit();
-
-		driver.remove();
-
-
-
+			driver.remove();
 		}
-
 	}
 
-
-
+	public static void setupBrowser() {
+		WebDriver localDriver = driver.get();
+		localDriver.get(ConfigReader.getProperty("url"));
+		localDriver.manage().window().maximize();
+		localDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+	}
+	
 	public static String getBrowserName() {
-
 		return browserName.get();
-
 	}
-
-
 
 	public static void setBrowserName(String browserName) {
-
-		Thread currentThread = Thread.currentThread();
-
-		String threadID = currentThread.getName();
-
-		System.out.println(threadID);
-
-		System.out.println("Print browser name for set browserName method : "+browserName);
-
 		DriverFactory.browserName.set(browserName);
-
-		System.out.println();
-
 	}
 }
