@@ -9,6 +9,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pageobjects.Helper;
 import pageobjects.HomePage;
+import utilities.DriverFactory;
 
 public class Home_StepDefinition {
 
@@ -17,8 +18,8 @@ public class Home_StepDefinition {
 	Helper helper;
 
 	public Home_StepDefinition() {
-		helper = new Helper(Hooks.driver);
-		homePage = new HomePage(Hooks.driver, helper);
+		helper = new Helper(DriverFactory.getDriver());
+		homePage = new HomePage(DriverFactory.getDriver(), helper);
 	}
 	@Given("User is in the NumpyNinja page")
 	public void user_is_in_the_numpy_ninja_page() {
