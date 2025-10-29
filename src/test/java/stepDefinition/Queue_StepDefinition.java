@@ -9,7 +9,9 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pageobjects.Helper;
+//import pageobjects.LoginPage;
 import pageobjects.QueuePage;
+import utilities.DriverFactory;
 
 public class Queue_StepDefinition {
 	
@@ -18,8 +20,8 @@ public class Queue_StepDefinition {
 	Helper helper;
 	
 	public Queue_StepDefinition() {
-		helper = new Helper(Hooks.driver);
-		queuePage = new QueuePage(Hooks.driver, helper);
+		helper = new Helper(DriverFactory.getDriver());
+		queuePage = new QueuePage(DriverFactory.getDriver(), helper);
 	}
 	
 	@Given("User logged in to the DS Algo portal and on home page")
