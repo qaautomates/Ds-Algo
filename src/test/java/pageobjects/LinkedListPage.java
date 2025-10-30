@@ -3,22 +3,18 @@ package pageobjects;
 import java.io.IOException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 
 public class LinkedListPage {
 	private static Logger logger = LogManager.getLogger();
-	private WebDriver driver;
 	private Helper helper;
 	
-	public LinkedListPage(WebDriver driver, Helper helper) {
-		this.driver = driver;
+	public LinkedListPage(Helper helper) {
 		this.helper = helper;
 	}
 	
 	public void loginToPortalLinkedList() {
 		helper.homeGetStartedBtn();
-		driver.findElement(By.linkText("Sign in")).click();
+		helper.clickSignIn();
 		helper.login();
 		logger.info("Logged in to DS algo portal for testing Linked List module");
 	}

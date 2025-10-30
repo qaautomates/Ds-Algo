@@ -20,7 +20,7 @@ public class LinkedList_StepDefinition {
 
 	public LinkedList_StepDefinition() {
 		helper = new Helper(DriverFactory.getDriver());
-		linkedListPage = new LinkedListPage(DriverFactory.getDriver(), helper);
+		linkedListPage = new LinkedListPage(helper);
 	}
 	
 	//Background
