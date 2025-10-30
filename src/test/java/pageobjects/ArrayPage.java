@@ -2,20 +2,23 @@ package pageobjects;
 
 import java.io.IOException;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class ArrayPage {
-
+public class ArrayPage  {
+	private static Logger logger = LogManager.getLogger();
 	private WebDriver driver;
 	private Helper helper;
 
 	@FindBy(xpath = "//input[@type='submit']")
 	WebElement submitBtn;
-	@FindBy(xpath = "//pre[contains(text(),'Error')]") WebElement submitBtnErrorMessage;
+	@FindBy(xpath = "//pre[contains(text(),'Error')]") 
+	WebElement submitBtnErrorMessage;
 
 	public ArrayPage(WebDriver driver, Helper helper) {
 		this.driver = driver;
@@ -28,13 +31,16 @@ public class ArrayPage {
 		helper.homeGetStartedBtn();
 		helper.clickSignIn();
 		helper.login();
+		logger.info("Logged in to DS Algo portal for testing Arrays");
 	}
 
 	public void selectArrayFromDropDown(String string) {
+		logger.info("Selecting Arrays from dropdown menu");
 		helper.selectDropDownMenu(string);
 	}
 
 	public void clickArrayTryEditor() {
+		logger.info("Clicking try editor for array");
 		helper.clickTryEditor();
 	}
 
@@ -44,6 +50,7 @@ public class ArrayPage {
 	}
 
 	public void arrayClickLink(String string) {
+		logger.info("Clicking submodule link " + string);
 		helper.clickLink(string);
 	}
 
@@ -52,6 +59,7 @@ public class ArrayPage {
 	}
 
 	public void clickArrayRunBtn() {
+		logger.info("Clicking Run button for Array");
 		helper.clickRunButton();
 	}
 
@@ -64,7 +72,7 @@ public class ArrayPage {
 	}
 
 	public void moveToPracticeQuestionsPage() {
-		// loginToPortal();
+		logger.info("Moving to array practice questions page");
 		helper.dataStructuresGetStarted("array");
 		helper.clickLink("Arrays in Python");
 		helper.clickLink("Practice Questions");
@@ -76,6 +84,7 @@ public class ArrayPage {
 	}
 
 	public void moveToPracticeQuestionsEditor(String questionLink) {
+		logger.info("Moving to Practice questions editor for array");
 		moveToPracticeQuestionsPage();
 		helper.clickLink(questionLink);
 	}
@@ -84,11 +93,8 @@ public class ArrayPage {
 		submitBtn.click();
 	}
 	
-	public String getSubmitMesssage() {
-		
+	public String getSubmitMesssage() {		
 		String message = submitBtnErrorMessage.getText();
-		
 		return message;
-		
 	}
 }

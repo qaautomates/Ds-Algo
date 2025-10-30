@@ -9,6 +9,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.io.IOException;
 import java.time.Duration;
 
 public class LoginPage {
@@ -44,12 +45,10 @@ public class LoginPage {
 	}
 	
 	public String verifyMessage() {
-		
 		String message =alertMessage.getText();
 		return message;
 	}
 	
-	//Coding from here
 	public void invalidCredentials(String userName, String passWord) {
 		username.sendKeys(userName);
 		password.sendKeys(passWord);
@@ -62,6 +61,10 @@ public class LoginPage {
 	
 	public void clickHomeGetStartedBtn() {
 		helper.homeGetStartedBtn();
+	}
+	
+	public String readLoginCredentials(String sheet, String testcase_id, String key) throws IOException {
+		return helper.readFromExcel(sheet, testcase_id, key);
 	}
 	
 	public void readActualMsg() {
