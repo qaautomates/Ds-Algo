@@ -10,16 +10,19 @@ import io.cucumber.java.en.When;
 import pageobjects.Helper;
 import pageobjects.RegisterPage;
 import utilities.DriverFactory;
+import utilities.ScenarioContext;
 
 public class Registration_StepDefinition {
 	private static Logger logger = LogManager.getLogger();
 
 	private Helper helper;
 	private RegisterPage registrationPage;
+	private ScenarioContext scenarioContext;
 
-	public Registration_StepDefinition() {
+	public Registration_StepDefinition(ScenarioContext scenarioContext) {
 		helper = new Helper(DriverFactory.getDriver());
 		registrationPage = new RegisterPage(DriverFactory.getDriver(), helper);
+		this.scenarioContext = scenarioContext;
 	}
 
 	@When("The user clicks on {string} link")
@@ -60,6 +63,27 @@ public class Registration_StepDefinition {
 	public void user_clicks_register_button() {
 		registrationPage.clickRegisterBtn();
 		logger.info("User clicked Register button");
+
+	}
+
+	@When("The user enters the valid username, password as {string} and password confirmation as {string}")
+	public void the_user_enters_the_valid_username_password_as_and_password_confirmation_as(String password,
+			String passwordConfirmation) {
+
+		String userNamevalue = registrationPage.generateUserName();
+		registrationPage.enterCredentials(userNamevalue, password, passwordConfirmation);
+		scenarioContext.setContext("usernamekey", userNamevalue);
+		logger.info("User entered the valid user name, password and confirmation password" );
+
+		
+	}
+
+	@Then("User should be able to see the successful message {string}")
+	public void user_should_be_able_to_see_the_successful_message(String string) {
+		String validUserNameGenerated = scenarioContext.getContext("usernamekey");
+		String expectedMessage = string+validUserNameGenerated;
+		Assert.assertEquals(expectedMessage, registrationPage.actualMessage());
+		logger.info("Verify the login success message as "+expectedMessage );
 
 	}
 
@@ -118,8 +142,7 @@ public class Registration_StepDefinition {
 
 	@Then("User should be able to see the expected message {string}")
 	public void user_should_be_able_to_see_the_expected_message(String string) {
-
-		Assert.assertEquals(registrationPage.expectedMessage(), string);
+		Assert.assertEquals(registrationPage.actualMessage(), string);
 		logger.info("User is able to see expected message");
 
 	}
