@@ -51,22 +51,31 @@
 			<artifactId>cucumber-testng</artifactId>
 			<version>7.28.2</version>
 		</dependency>
+		<!--
+		https://mvnrepository.com/artifact/io.cucumber/cucumber-picocontainer -->
+		<dependency>
+			<groupId>io.cucumber</groupId>
+			<artifactId>cucumber-picocontainer</artifactId>
+			<version>7.28.2</version>
+		</dependency>
 		<dependency>
 			<groupId>net.java.dev.jna</groupId>
 			<artifactId>jna</artifactId>
 			<version>5.13.0</version> <!-- or the version you need -->
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core -->
+		<!--
+		https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core -->
 		<dependency>
-    		<groupId>org.apache.logging.log4j</groupId>
-    		<artifactId>log4j-core</artifactId>
-    		<version>2.25.1</version>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-core</artifactId>
+			<version>2.25.1</version>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-api -->
+		<!--
+		https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-api -->
 		<dependency>
-    		<groupId>org.apache.logging.log4j</groupId>
-    		<artifactId>log4j-api</artifactId>
-    		<version>2.25.1</version>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-api</artifactId>
+			<version>2.25.1</version>
 		</dependency>
 	</dependencies>
 	<build>
@@ -88,14 +97,14 @@
 				<version>3.5.4</version>
 				<configuration>
 					<systemPropertyVariables>
-          				<allure.results.directory>target/allure-results</allure.results.directory>
-        			</systemPropertyVariables>
-        			<suiteXmlFiles>
-        				<suiteXmlFile>testng.xml</suiteXmlFile>
-        			</suiteXmlFiles>
-        			<properties>
-        				<dataproviderthreadcount>4</dataproviderthreadcount>
-        			</properties>
+						<allure.results.directory>target/allure-results</allure.results.directory>
+					</systemPropertyVariables>
+					<suiteXmlFiles>
+						<suiteXmlFile>testng.xml</suiteXmlFile>
+					</suiteXmlFiles>
+					<properties>
+						<dataproviderthreadcount>4</dataproviderthreadcount>
+					</properties>
 				</configuration>
 			</plugin>
 		</plugins>
