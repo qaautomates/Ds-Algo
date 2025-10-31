@@ -61,7 +61,7 @@ public class Graph_StepDefinition {
 	@When("The user clicks on {string} link for Graph")
 	public void the_user_clicks_on_link_for_graph(String string) {
 		
-		graphPage.graphclickLink(string);
+		graphPage.graphClickLink(string);
 	}
 
 	@Then("The user should be redirected to {string} page for Graph")
@@ -75,7 +75,7 @@ public class Graph_StepDefinition {
 	public void the_user_is_in_the_page_for_graph(String string) {
 	   
 		graphPage.graphGetStarted();
-		graphPage.graphclickLink(string);
+		graphPage.graphClickLink(string);
 	}
 
 	@When("The user click try here button for Graph")
@@ -94,7 +94,7 @@ public class Graph_StepDefinition {
 	public void the_user_is_in_module_in_graph(String string) {
 	    
 		graphPage.graphGetStarted();
-		graphPage.graphclickLink(string);
+		graphPage.graphClickLink(string);
 	}
 	
 	@When("The user clicks Try here button in Graph")
@@ -128,7 +128,7 @@ public class Graph_StepDefinition {
 	public void the_user_is_in_the_link_for_graph(String string) {
 	
 		graphPage.graphGetStarted();
-		graphPage.graphclickLink(string);
+		graphPage.graphClickLink(string);
 		
 	}
 

@@ -15,6 +15,7 @@ public class GraphPage {
 	private Helper helper;
 
 	public GraphPage(WebDriver driver, Helper helper) {
+		this.driver = driver;
 		this.helper = helper;
 	}
 
@@ -40,10 +41,10 @@ public class GraphPage {
 
 	}
 
-	public void graphclickLink(String string) {
-		helper.graphClickLink(string);
+	public void graphClickLink(String string) {
+		driver.findElement(By.xpath("//a[@href='" + string + "']")).click();
 	}
-
+	
 	public void enterGraphPythonCode(String sheet, String testcase_id) throws IOException {
 
 		ExcelSheetHandling excelReader = new ExcelSheetHandling();
