@@ -1,11 +1,9 @@
 package stepDefinition;
 
 import java.io.IOException;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
-
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -13,11 +11,10 @@ import pageobjects.GraphPage;
 import pageobjects.Helper;
 import utilities.DriverFactory;
 
-
 public class Graph_StepDefinition {
 	
 	private static Logger logger = LogManager.getLogger();
-	GraphPage graphPage;
+	private GraphPage graphPage;
 	Helper helper;
 	
 	public Graph_StepDefinition() {
@@ -25,7 +22,6 @@ public class Graph_StepDefinition {
 		graphPage = new GraphPage(DriverFactory.getDriver(), helper);
 	}
 	
-	//Background
 	@Given("User logged in to the ds-algo portal and is on home page")
 	public void user_logged_in_to_the_ds_algo_portal_and_is_on_home_page() {
 		graphPage.loginToPortalGraph();
@@ -65,7 +61,7 @@ public class Graph_StepDefinition {
 	@When("The user clicks on {string} link for Graph")
 	public void the_user_clicks_on_link_for_graph(String string) {
 		
-		graphPage.graphClickLink(string);
+		graphPage.graphclickLink(string);
 	}
 
 	@Then("The user should be redirected to {string} page for Graph")
@@ -79,7 +75,7 @@ public class Graph_StepDefinition {
 	public void the_user_is_in_the_page_for_graph(String string) {
 	   
 		graphPage.graphGetStarted();
-		graphPage.graphClickLink(string);
+		graphPage.graphclickLink(string);
 	}
 
 	@When("The user click try here button for Graph")
@@ -98,7 +94,7 @@ public class Graph_StepDefinition {
 	public void the_user_is_in_module_in_graph(String string) {
 	    
 		graphPage.graphGetStarted();
-		graphPage.graphClickLink(string);
+		graphPage.graphclickLink(string);
 	}
 	
 	@When("The user clicks Try here button in Graph")
@@ -132,7 +128,7 @@ public class Graph_StepDefinition {
 	public void the_user_is_in_the_link_for_graph(String string) {
 	
 		graphPage.graphGetStarted();
-		graphPage.graphClickLink(string);
+		graphPage.graphclickLink(string);
 		
 	}
 
