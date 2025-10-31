@@ -82,6 +82,7 @@ public class DataStructure_StepDefinition {
 	@When("The user clicks Try here button in Data Structures Introduction page")
 	public void the_user_clicks_try_here_button_in_data_structures_introduction_page() {
 		datastructurePage.ClickDataStructureTryEditor();
+		logger.info("User clicks Try here button in Data Structure");
 	}
 
 	@When("The user enters the python code from Excel sheet {string} with testcaseId {string} in Data Structures intro")
@@ -108,11 +109,13 @@ public class DataStructure_StepDefinition {
 	public void the_user_is_on_the_topic_page_in_data_structures_introduction(String string) {
 		datastructurePage.datastructureGetStarted();
 		datastructurePage.datastructureClickLink(string);
+		logger.info("Navigated to Data Structure submodule " + string + " page");
 	}
 
 	@When("The user clicks the Practice Questions link within the Data Structures Introduction module")
 	public void the_user_clicks_the_practice_questions_link_within_the_data_structures_introduction_module() {
 		datastructurePage.datastructureClickLink("Practice Questions");
+		logger.info("User clicks Practice Questions link");
 	}
 
 	@Then("The user should be redirected to the {string} for Data Structures Introduction")

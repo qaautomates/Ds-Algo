@@ -9,7 +9,6 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pageobjects.Helper;
-//import pageobjects.LoginPage;
 import pageobjects.QueuePage;
 import utilities.DriverFactory;
 
@@ -98,6 +97,7 @@ public class Queue_StepDefinition {
 	@When("The user clicks Try here button in Queue")
 	public void the_user_clicks_try_here_button_in_queue() {
 		queuePage.ClickQueueTryEditor();
+		logger.info("User clicks Try here button in Queue");
 	}
 
 	@When("The user enters input from Excel sheet {string} with testcaseId {string} in text area in Queue")
@@ -124,11 +124,13 @@ public class Queue_StepDefinition {
 	public void the_user_has_opened_the_page_in_queue_module(String string) {
 		queuePage.queueGetStarted();
 		queuePage.queueClickLink(string);
+		logger.info("Navigated to Queue submodule " + string + " page");
 	}
 
 	@When("The user clicks the Practice Questions link on the Queue page")
 	public void the_user_clicks_the_practice_questions_link_on_the_queue_page() {
 		queuePage.queueClickLink("Practice Questions");
+		logger.info("User clicks Practice Questions link");
 	}
 
 	@Then("The user should be redirected to the {string} page for Queue")
