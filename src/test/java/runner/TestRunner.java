@@ -15,7 +15,7 @@ import utilities.DriverFactory;
 		plugin = {"pretty", "json:target/DS-Algo.json", "io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm"},
 		monochrome = false,
 		//tags = "@test_now",
-		features = {"src/test/resources/features/login.feature"},
+		features = {"src/test/resources/features"},
 		glue = {"stepDefinition"})
 		
 public class TestRunner extends AbstractTestNGCucumberTests {
