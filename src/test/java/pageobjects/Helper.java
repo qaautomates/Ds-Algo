@@ -36,11 +36,11 @@ public class Helper {
 	@FindBy(xpath = "//button[@type='button']") WebElement runBtn;
 
 
-	
+
 	public void clickSignIn() {
 		signInLink.click();
 	}
-	
+
 	public void login() {
 		uName.sendKeys("qaautomates4");
 		passWord.sendKeys("September2025$");
@@ -68,10 +68,27 @@ public class Helper {
 		driver.findElement(By.xpath("//a[@href='" + module + "']")).click();
 	}
 
+/*	public void dataStructuresGetStarted(String module) {
+		for(int i= 0; i< 3; i++) {
+			try {
+				Thread.sleep(1000);
+				driver.findElement(By.xpath("//a[@href='" + module + "']")).click();
+				break;
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+				System.out.println("Interrupted Exception occurred while navigating to module: " + module);
+			}
+		}
+	}*/
+
 	public void clickLink(String link) {
 		driver.findElement(By.xpath("//a[text()='" + link + "']")).click();
 	}
 
+	public void graphClickLink(String string) {
+		driver.findElement(By.xpath("//a[@href='" + string + "']")).click();
+	}
+	
 	public String getUrl() {
 
 		return driver.getCurrentUrl();
@@ -86,7 +103,7 @@ public class Helper {
 	}
 
 	public void enterPythonCode(String code) {
-	
+
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("document.querySelector('.CodeMirror').CodeMirror.setValue('');");
 		js.executeScript("document.querySelector('.CodeMirror').CodeMirror.setValue(arguments[0]);", code);
@@ -100,22 +117,22 @@ public class Helper {
 	public void clickRunButton() {
 		runBtn.click();
 	}
-	
+
 	public String readFromExcel(String sheet, String testcase_id, String key) throws IOException {
 		ExcelSheetHandling excelReader = new ExcelSheetHandling();
 		HashMap<String, String> code = excelReader.readExcelSheet(sheet, testcase_id);
 		return code.get(key);
 	}
-	
+
 	public String readActualOutput() {
 		try {
-            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-            wait.until(ExpectedConditions.alertIsPresent());
-            Alert alert = driver.switchTo().alert();
-            return alert.getText();
-        } catch (Exception e) {
-        	WebElement output = driver.findElement(By.id("output"));
-    		return output.getText();
-        }
+			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+			wait.until(ExpectedConditions.alertIsPresent());
+			Alert alert = driver.switchTo().alert();
+			return alert.getText();
+		} catch (Exception e) {
+			WebElement output = driver.findElement(By.id("output"));
+			return output.getText();
+		}
 	}
 }
