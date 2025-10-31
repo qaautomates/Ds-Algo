@@ -15,6 +15,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import utilities.ConfigReader;
 import utilities.ExcelSheetHandling;
 
 public class Helper {
@@ -23,28 +24,38 @@ public class Helper {
 
 	public Helper(WebDriver driver) {
 		this.driver = driver;
-		PageFactory.initElements(driver,this );
+		PageFactory.initElements(driver, this);
 	}
 
-	@FindBy(linkText = "Sign in")WebElement signInLink;
-	@FindBy(name = "username") WebElement uName;
-	@FindBy(name = "password") WebElement passWord;
-	@FindBy(xpath = "//input[@type='submit']") WebElement logInBtn;
-	@FindBy(xpath = "//button[contains(text(),'Get Started')]") WebElement getStartedBtn;
-	@FindBy(xpath = "//a[contains(text(),'Data Structures')]") WebElement dropdownMenu;
-	@FindBy(linkText = "Try here>>>") WebElement tryHereBtn;
-	@FindBy(xpath = "//button[@type='button']") WebElement runBtn;
-
-
+	@FindBy(linkText = "Sign in")
+	WebElement signInLink;
+	@FindBy(name = "username")
+	WebElement uName;
+	@FindBy(name = "password")
+	WebElement pwd;
+	@FindBy(xpath = "//input[@type='submit']")
+	WebElement logInBtn;
+	@FindBy(xpath = "//button[contains(text(),'Get Started')]")
+	WebElement getStartedBtn;
+	@FindBy(xpath = "//a[contains(text(),'Data Structures')]")
+	WebElement dropdownMenu;
+	@FindBy(linkText = "Try here>>>")
+	WebElement tryHereBtn;
+	@FindBy(xpath = "//button[@type='button']")
+	WebElement runBtn;
 
 	public void clickSignIn() {
 		signInLink.click();
 	}
 
-	public void login() {
-		uName.sendKeys("qaautomates4");
-		passWord.sendKeys("September2025$");
+	public void enterCredentials() throws IOException {
+
+		String userNameValue = readFromExcel(ConfigReader.getProperty("sheetName"), "TC001", "UserName");
+		String passWordValue = readFromExcel(ConfigReader.getProperty("sheetName"), "TC001", "Password");
+		uName.sendKeys(userNameValue);
+		pwd.sendKeys(passWordValue);
 		logInBtn.click();
+
 	}
 
 	public String getTitle() {
@@ -68,27 +79,10 @@ public class Helper {
 		driver.findElement(By.xpath("//a[@href='" + module + "']")).click();
 	}
 
-/*	public void dataStructuresGetStarted(String module) {
-		for(int i= 0; i< 3; i++) {
-			try {
-				Thread.sleep(1000);
-				driver.findElement(By.xpath("//a[@href='" + module + "']")).click();
-				break;
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-				System.out.println("Interrupted Exception occurred while navigating to module: " + module);
-			}
-		}
-	}*/
-
 	public void clickLink(String link) {
 		driver.findElement(By.xpath("//a[text()='" + link + "']")).click();
 	}
 
-	public void graphClickLink(String string) {
-		driver.findElement(By.xpath("//a[@href='" + string + "']")).click();
-	}
-	
 	public String getUrl() {
 
 		return driver.getCurrentUrl();
@@ -122,6 +116,7 @@ public class Helper {
 		ExcelSheetHandling excelReader = new ExcelSheetHandling();
 		HashMap<String, String> code = excelReader.readExcelSheet(sheet, testcase_id);
 		return code.get(key);
+
 	}
 
 	public String readActualOutput() {
