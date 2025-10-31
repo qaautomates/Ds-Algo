@@ -37,10 +37,8 @@ public class LoginPage {
 		signIn.click();
 	}
 	
-	public void enterCredentials(String userName, String passWord) {
-		username.sendKeys(userName);
-		password.sendKeys(passWord);
-		submitBtn.click();
+	public void login() throws IOException {
+		helper.enterCredentials();
 		
 	}
 	
