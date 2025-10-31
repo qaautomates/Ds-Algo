@@ -99,7 +99,7 @@ public class RegisterPage {
 
 		String name = "QAAUTOMATES";
 		Random randomValues = new Random();
-		String username = name + randomValues.nextInt(100);
+		String username = name + randomValues.nextInt(1000);
 		System.out.println("GeneratedRandom String : " + username);
 		return username;
 	}

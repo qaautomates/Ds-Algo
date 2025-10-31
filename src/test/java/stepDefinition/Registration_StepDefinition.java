@@ -10,19 +10,18 @@ import io.cucumber.java.en.When;
 import pageobjects.Helper;
 import pageobjects.RegisterPage;
 import utilities.DriverFactory;
-import utilities.ScenarioContext;
+
 
 public class Registration_StepDefinition {
 	private static Logger logger = LogManager.getLogger();
 
 	private Helper helper;
 	private RegisterPage registrationPage;
-	private ScenarioContext scenarioContext;
+	 String userNamevalue;
 
-	public Registration_StepDefinition(ScenarioContext scenarioContext) {
+	public Registration_StepDefinition() {
 		helper = new Helper(DriverFactory.getDriver());
 		registrationPage = new RegisterPage(DriverFactory.getDriver(), helper);
-		this.scenarioContext = scenarioContext;
 	}
 
 	@When("The user clicks on {string} link")
@@ -70,9 +69,8 @@ public class Registration_StepDefinition {
 	public void the_user_enters_the_valid_username_password_as_and_password_confirmation_as(String password,
 			String passwordConfirmation) {
 
-		String userNamevalue = registrationPage.generateUserName();
+		userNamevalue = registrationPage.generateUserName();
 		registrationPage.enterCredentials(userNamevalue, password, passwordConfirmation);
-		scenarioContext.setContext("usernamekey", userNamevalue);
 		logger.info("User entered the valid user name, password and confirmation password" );
 
 		
@@ -80,8 +78,7 @@ public class Registration_StepDefinition {
 
 	@Then("User should be able to see the successful message {string}")
 	public void user_should_be_able_to_see_the_successful_message(String string) {
-		String validUserNameGenerated = scenarioContext.getContext("usernamekey");
-		String expectedMessage = string+validUserNameGenerated;
+		String expectedMessage = string+userNamevalue;
 		Assert.assertEquals(expectedMessage, registrationPage.actualMessage());
 		logger.info("Verify the login success message as "+expectedMessage );
 
