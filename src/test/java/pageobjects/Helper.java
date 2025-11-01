@@ -48,13 +48,20 @@ public class Helper {
 		signInLink.click();
 	}
 
-	public void login() throws IOException {
+	public void login() {
 
-		String userNameValue = readFromExcel(ConfigReader.getProperty("sheetName"), "TC001", "UserName");
-		String passWordValue = readFromExcel(ConfigReader.getProperty("sheetName"), "TC001", "Password");
-		uName.sendKeys(userNameValue);
-		pwd.sendKeys(passWordValue);
-		logInBtn.click();
+		String userNameValue;
+		try {
+			userNameValue = readFromExcel(ConfigReader.getProperty("sheetName"), "TC001", "UserName");
+			String passWordValue = readFromExcel(ConfigReader.getProperty("sheetName"), "TC001", "Password");
+			uName.sendKeys(userNameValue);
+			pwd.sendKeys(passWordValue);
+			logInBtn.click();
+		} catch (IOException e) {
+			
+			e.printStackTrace();
+		}
+		
 
 	}
 
