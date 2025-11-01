@@ -1,7 +1,6 @@
 package pageobjects;
 
 import org.openqa.selenium.Alert;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -25,7 +24,6 @@ public class LoginPage {
 	@FindBy(xpath = "//div[@class='alert alert-primary']") WebElement alertMessage;
 	@FindBy(xpath = "//input[@type='submit']") WebElement loginbtn;
 	@FindBy(xpath = "//a[@href='/logout']") WebElement signOut;
-	//private By successMessage = By.xpath("//div[contains(text(),'Logged out successfully')]");
 	@FindBy(xpath= "//div[contains(text(),'Logged out successfully')]") WebElement successMessage;
 	public LoginPage(WebDriver driver, Helper helper) {
 		this.driver = driver;
@@ -38,7 +36,7 @@ public class LoginPage {
 	}
 	
 	public void login() throws IOException {
-		helper.enterCredentials();
+		helper.login();
 		
 	}
 	

@@ -9,28 +9,29 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-
 public class TreePage {
 	private static Logger logger = LogManager.getLogger();
 
 	public WebDriver driver;
 	public Helper helper;
 
-	
-	@FindBy(linkText ="Sign in" ) WebElement signInBtn;
+	@FindBy(linkText = "Sign in")
+	WebElement signInBtn;
 
 	public TreePage(WebDriver driver, Helper helper) {
 		this.driver = driver;
 		this.helper = helper;
-		PageFactory.initElements(driver,this);
+		PageFactory.initElements(driver, this);
 
 	}
 
-	public void loginToPortal() {
+	public void loginToPortal() throws IOException  {
 		helper.homeGetStartedBtn();
 		signInBtn.click();
 		helper.login();
-		logger.info("Logged in to DS algo portal for testing Tree module");
+		logger.info("User Logged in to DS algo portal for testing Tree module");
+
+		// helper.login();
 	}
 
 	public void treeGetStarted() {
@@ -45,7 +46,7 @@ public class TreePage {
 
 	public void treeClickLink(String string) {
 		helper.clickLink(string);
-		logger.info("Clicking sub module" + string +" link for Tree");
+		logger.info("Clicking sub module" + string + " link for Tree");
 	}
 
 	public void clickTreeTryEditor() {
@@ -53,23 +54,24 @@ public class TreePage {
 		logger.info("Clicking Try here button for Tree modules");
 	}
 
-	public void enterTreePythonCode(String sheet, String testcase_id) throws IOException {	
+	public void enterTreePythonCode(String sheet, String testcase_id) throws IOException {
 		helper.enterPythonCode(helper.readFromExcel(sheet, testcase_id, "pythonCode"));
 		logger.info("Entering python code for Tree modules");
 	}
-	
+
 	public void clickTreeRunBtn() {
 		helper.clickRunButton();
 		logger.info("Clicking Run button for assessment page");
 	}
-	
+
 	public String getActualOutputForTree() {
 		return helper.readActualOutput();
-		
+
 	}
+
 	public String readExpectedOutputForTree(String sheet, String testcase_id) throws IOException {
 		return helper.readFromExcel(sheet, testcase_id, "Result");
-		
+
 	}
-	
+
 }

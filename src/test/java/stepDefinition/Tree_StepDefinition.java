@@ -13,6 +13,7 @@ import pageobjects.Helper;
 import pageobjects.TreePage;
 import utilities.DriverFactory;
 
+
 public class Tree_StepDefinition {
 	private static Logger logger = LogManager.getLogger();
 
@@ -24,11 +25,10 @@ public class Tree_StepDefinition {
 		treePage = new TreePage(DriverFactory.getDriver(), helper);
 	}
 
-	@Given("User logged in to Dsalgo portal and on home page")
-	public void user_logged_in_to_dsalgo_portal_and_on_home_page() {
+	@Given("User logged in to Dsalgo portal and user is on home page")
+	public void user_logged_in_to_dsalgo_portal_and_user_is_on_home_page() throws IOException {
 		treePage.loginToPortal();
 		logger.info("User logged in to Ds-Algo application");
-
 	}
 
 	@When("The user clicks get started button in Tree DataStructure panel")
@@ -43,14 +43,12 @@ public class Tree_StepDefinition {
 		Assert.assertEquals(helper.getTitle(), "Tree");
 		logger.info("Navigated to tree module page");
 
-
 	}
 
 	@When("User selects {string} item from the dropdown menu for Tree DataStructure")
 	public void user_selects_item_from_the_dropdown_menu_for_tree_data_structure(String string) {
 		treePage.selectTreeFromDropDown(string);
 		logger.info("Selected tree from the dropdown menu");
-
 
 	}
 
@@ -59,17 +57,14 @@ public class Tree_StepDefinition {
 		Assert.assertEquals(helper.getTitle(), "Tree");
 		logger.info("User navigated to Tree Data Structure page");
 
-
 	}
 
-	
-
-@Given("The user is in the DataStructure page for Tree")
-public void the_user_is_in_the_data_structure_page_for_tree() {
+	@Given("The user is in the DataStructure page for Tree")
+	public void the_user_is_in_the_data_structure_page_for_tree() {
 		treePage.treeGetStarted();
 		logger.info("User is in Tree Data Structure page");
 
-}
+	}
 
 	@When("User clicks {string} in the tree page")
 	public void user_clicks_in_the_tree_page(String string) {
@@ -83,7 +78,6 @@ public void the_user_is_in_the_data_structure_page_for_tree() {
 		Assert.assertEquals(helper.getTitle(), string);
 		logger.info(" Tree sub module : " + string + " page is loaded successfully");
 
-
 	}
 
 	@Given("The user is in the tree sub module {string} page")
@@ -93,7 +87,6 @@ public void the_user_is_in_the_data_structure_page_for_tree() {
 		logger.info("Navigated to tree  sub module " + string + " page");
 
 	}
-	
 
 	@When("The user clicks Try here button  on the bottom of the page")
 	public void the_user_clicks_try_here_button_on_the_bottom_of_the_page() {
