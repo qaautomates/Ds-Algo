@@ -1,118 +1,103 @@
 Feature: Tree Data Structure
-Background: 
-Given User logged in to Dsalgo portal and on home page
 
-Scenario: Verify the user is able to navigate to Tree Data structure page from Get Started link
-When The user clicks get started button in Tree DataStructure panel 
-Then User should be navigated to Tree Data Structure page
+  Background:
 
-Scenario: Verify the user is able to navigate to Tree Data Structure from dropdown
-When User selects "Tree" item from the dropdown menu for Tree DataStructure
-Then  User should be redirected to Tree Data structures page
+  Scenario:
+    Given User logged in to Dsalgo portal and user is on home page
 
-Scenario Outline: Verify that the user is able to navigate to different links in Tree page
-Given The user is in the DataStructure page for Tree 
-When  User clicks "<link>" in the tree page
-Then  The useer should be redirected to corresponding "<expected_Title>" page
+  Scenario: Verify the user is able to navigate to Tree Data structure page from Get Started link
+    When The user clicks get started button in Tree DataStructure panel
+    Then User should be navigated to Tree Data Structure page
 
-Examples:
+  Scenario: Verify the user is able to navigate to Tree Data Structure from dropdown
+    When User selects "Tree" item from the dropdown menu for Tree DataStructure
+    Then User should be redirected to Tree Data structures page
 
-|			link			|	expected_Title		|
+  Scenario Outline: Verify that the user is able to navigate to different links in Tree page
+    Given The user is in the DataStructure page for Tree
+    When User clicks "<link>" in the tree page
+    Then The useer should be redirected to corresponding "<expected_Title>" page
 
-|	Overview of Trees		|	Overview of Trees	|
-|	Terminologies			|	Terminologies		|
-|	Types of Trees			|	Types of Trees		|
-|	Tree Traversals			|	Tree Traversals		|
-|	Traversals-Illustration	|	Traversals-Illustration|
-|	Binary Trees			|	Binary Trees		|
-|	Types of Binary Trees	|	Types of Binary Trees	 |
-|	Implementation in Python |	Implementation in Python	|
-|	Binary Tree Traversals	 |	Binary Tree Traversals		|
-|	Implementation of Binary Trees	|	Implementation of Binary Trees	|
-|	Applications of Binary trees	|	Applications of Binary trees	|
-|	Binary Search Trees		|		Binary Search Trees	|
-|	Implementation Of BST	|	Implementation Of BST	|
+    Examples:
+      | link                           | expected_Title                 |
+      | Overview of Trees              | Overview of Trees              |
+      | Terminologies                  | Terminologies                  |
+      | Types of Trees                 | Types of Trees                 |
+      | Tree Traversals                | Tree Traversals                |
+      | Traversals-Illustration        | Traversals-Illustration        |
+      | Binary Trees                   | Binary Trees                   |
+      | Types of Binary Trees          | Types of Binary Trees          |
+      | Implementation in Python       | Implementation in Python       |
+      | Binary Tree Traversals         | Binary Tree Traversals         |
+      | Implementation of Binary Trees | Implementation of Binary Trees |
+      | Applications of Binary trees   | Applications of Binary trees   |
+      | Binary Search Trees            | Binary Search Trees            |
+      | Implementation Of BST          | Implementation Of BST          |
 
+  Scenario Outline: Verify that user is able to navigate to Try Editor page for different links from Tree page
+    Given The user is in the tree sub module "<moduleLink>" page
+    When The user clicks Try here button  on the bottom of the page
+    Then The user should be redirected to the Assessment page
 
-Scenario Outline: Verify that user is able to navigate to Try Editor page for different links from Tree page 
-Given The user is in the tree sub module "<moduleLink>" page
-When The user clicks Try here button  on the bottom of the page 
-Then The user should be redirected to the Assessment page 
+    Examples:
+      | moduleLink                     |
+      | Overview of Trees              |
+      | Terminologies                  |
+      | Types of Trees                 |
+      | Tree Traversals                |
+      | Traversals-Illustration        |
+      | Binary Trees                   |
+      | Types of Binary Trees          |
+      | Implementation in Python       |
+      | Binary Tree Traversals         |
+      | Implementation of Binary Trees |
+      | Applications of Binary trees   |
+      | Binary Search Trees            |
+      | Implementation Of BST          |
 
-Examples:
-|       moduleLink          		|   
-|	Overview of Trees		|
-|	Terminologies			|	
-|	Types of Trees			|	
-|	Tree Traversals			|	
-|	Traversals-Illustration	|	
-|	Binary Trees			|	
-|	Types of Binary Trees	|	
-|	Implementation in Python |	
-|	Binary Tree Traversals	 |	
-|	Implementation of Binary Trees	|	
-|	Applications of Binary trees	|	
-|	Binary Search Trees		|		
-|	Implementation Of BST	|	
+  @tree
+  Scenario Outline: User enters valid/invalid python code in Try Editor for different sub modules in Tree
+    Given The user is in the tree sub module "<moduleLink>" page
+    When The user clicks Try here button  on the bottom of the page
+    And User enters input from Excel sheet "<sheet>" with testcaseId "<testId>" in text area
+    And User clicks Run button for tree DataStructure
+    Then The user should be able to see the expected output from excel sheet "<sheet>" with testcaseId "<testId>" for corresponding python code
 
-@tree
-Scenario Outline: User enters valid/invalid python code in Try Editor for different sub modules in Tree 
-Given The user is in the tree sub module "<moduleLink>" page
-When The user clicks Try here button  on the bottom of the page 
-And User enters input from Excel sheet "<sheet>" with testcaseId "<testId>" in text area 
-And User clicks Run button for tree DataStructure 
-Then The user should be able to see the expected output from excel sheet "<sheet>" with testcaseId "<testId>" for corresponding python code
-
-Examples:
-|	sheet		|	testId	|		moduleLink	|
-|  pythonCode |  TC001  |   Overview of Trees	| 
-|  pythonCode |  TC002  |   Overview of Trees	|
-|  pythonCode |  TC003  |   Overview of Trees	|
-
-
-|  pythonCode |  TC001  |   Types of Trees	| 
-|  pythonCode |  TC002  |   Types of Trees	|
-|  pythonCode |  TC003  |   Types of Trees	|
-
-|  pythonCode |  TC001  |   Tree Traversals	| 
-|  pythonCode |  TC002  |   Tree Traversals	|
-|  pythonCode |  TC003  |   Tree Traversals	|
-
-
-|  pythonCode |  TC001  |   Traversals-Illustration	| 
-|  pythonCode |  TC002  |   Traversals-Illustration	|
-|  pythonCode |  TC003  |   Traversals-Illustration	|
-
-|  pythonCode |  TC001  |   Binary Trees	| 
-|  pythonCode |  TC002  |   Binary Trees	|
-|  pythonCode |  TC003  |   Binary Trees	|
-
-|  pythonCode |  TC001  |   Types of Binary Trees	| 
-|  pythonCode |  TC002  |   Types of Binary Trees	|
-|  pythonCode |  TC003  |   Types of Binary Trees	|
-
-|  pythonCode |  TC001  |   Implementation in Python	| 
-|  pythonCode |  TC002  |   Implementation in Python	|
-|  pythonCode |  TC003  |   Implementation in Python	|
-
-|  pythonCode |  TC001  |   Binary Tree Traversals	| 
-|  pythonCode |  TC002  |   Binary Tree Traversals	|
-|  pythonCode |  TC003  |   Binary Tree Traversals	|
-
-
-|  pythonCode |  TC001  |   Implementation of Binary Trees	| 
-|  pythonCode |  TC002  |   Implementation of Binary Trees	|
-|  pythonCode |  TC003  |   Implementation of Binary Trees	|
-
-|  pythonCode |  TC001  |   Applications of Binary trees	| 
-|  pythonCode |  TC002  |   Applications of Binary trees	|
-|  pythonCode |  TC003  |   Applications of Binary trees	|
-
-|  pythonCode |  TC001  |   Binary Search Trees	| 
-|  pythonCode |  TC002  |   Binary Search Trees	|
-|  pythonCode |  TC003  |   Binary Search Trees	|
-
-|  pythonCode |  TC001  |   Implementation Of BST	| 
-|  pythonCode |  TC002  |   Implementation Of BST	|
-|  pythonCode |  TC003  |   Implementation Of BST	|
-
+    Examples:
+      | sheet      | testId | moduleLink                     |
+      | pythonCode | TC001  | Overview of Trees              |
+      | pythonCode | TC002  | Overview of Trees              |
+      | pythonCode | TC003  | Overview of Trees              |
+      | pythonCode | TC001  | Types of Trees                 |
+      | pythonCode | TC002  | Types of Trees                 |
+      | pythonCode | TC003  | Types of Trees                 |
+      | pythonCode | TC001  | Tree Traversals                |
+      | pythonCode | TC002  | Tree Traversals                |
+      | pythonCode | TC003  | Tree Traversals                |
+      | pythonCode | TC001  | Traversals-Illustration        |
+      | pythonCode | TC002  | Traversals-Illustration        |
+      | pythonCode | TC003  | Traversals-Illustration        |
+      | pythonCode | TC001  | Binary Trees                   |
+      | pythonCode | TC002  | Binary Trees                   |
+      | pythonCode | TC003  | Binary Trees                   |
+      | pythonCode | TC001  | Types of Binary Trees          |
+      | pythonCode | TC002  | Types of Binary Trees          |
+      | pythonCode | TC003  | Types of Binary Trees          |
+      | pythonCode | TC001  | Implementation in Python       |
+      | pythonCode | TC002  | Implementation in Python       |
+      | pythonCode | TC003  | Implementation in Python       |
+      | pythonCode | TC001  | Binary Tree Traversals         |
+      | pythonCode | TC002  | Binary Tree Traversals         |
+      | pythonCode | TC003  | Binary Tree Traversals         |
+      | pythonCode | TC001  | Implementation of Binary Trees |
+      | pythonCode | TC002  | Implementation of Binary Trees |
+      | pythonCode | TC003  | Implementation of Binary Trees |
+      | pythonCode | TC001  | Applications of Binary trees   |
+      | pythonCode | TC002  | Applications of Binary trees   |
+      | pythonCode | TC003  | Applications of Binary trees   |
+      | pythonCode | TC001  | Binary Search Trees            |
+      | pythonCode | TC002  | Binary Search Trees            |
+      | pythonCode | TC003  | Binary Search Trees            |
+      | pythonCode | TC001  | Implementation Of BST          |
+      | pythonCode | TC002  | Implementation Of BST          |
+      | pythonCode | TC003  | Implementation Of BST          |

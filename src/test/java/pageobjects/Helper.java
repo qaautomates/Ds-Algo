@@ -48,7 +48,7 @@ public class Helper {
 		signInLink.click();
 	}
 
-	public void enterCredentials() throws IOException {
+	public void login() throws IOException {
 
 		String userNameValue = readFromExcel(ConfigReader.getProperty("sheetName"), "TC001", "UserName");
 		String passWordValue = readFromExcel(ConfigReader.getProperty("sheetName"), "TC001", "Password");
