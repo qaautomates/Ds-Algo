@@ -1,9 +1,7 @@
 Feature: Tree Data Structure
 
-  Background:
-
-  Scenario:
-    Given User logged in to Dsalgo portal and user is on home page
+Background:
+Given User logged in to Dsalgo portal and user is on home page
 
   Scenario: Verify the user is able to navigate to Tree Data structure page from Get Started link
     When The user clicks get started button in Tree DataStructure panel
