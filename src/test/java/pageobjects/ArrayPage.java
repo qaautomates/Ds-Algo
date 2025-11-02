@@ -1,7 +1,6 @@
 package pageobjects;
 
 import java.io.IOException;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
@@ -17,8 +16,9 @@ public class ArrayPage  {
 
 	@FindBy(xpath = "//input[@type='submit']")
 	WebElement submitBtn;
-	@FindBy(xpath = "//pre[contains(text(),'Error')]") 
-	WebElement submitBtnErrorMessage;
+	@FindBy(xpath = "//pre[contains(text(),'Error') or contains(text(), 'No tests')]") 
+	WebElement submitBtnMessage;
+	
 
 	public ArrayPage(WebDriver driver, Helper helper) {
 		this.driver = driver;
@@ -94,7 +94,8 @@ public class ArrayPage  {
 	}
 	
 	public String getSubmitMesssage() {		
-		String message = submitBtnErrorMessage.getText();
+		String message = submitBtnMessage.getText();
+		logger.info("submit message:" + message);
 		return message;
 	}
 }
