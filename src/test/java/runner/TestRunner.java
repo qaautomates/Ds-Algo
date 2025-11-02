@@ -13,7 +13,7 @@ import utilities.DriverFactory;
 
 @CucumberOptions(
 		plugin = {"pretty", "html:target/cucumber-reports/DS-Algo.html",
-				  "json:target/DS-Algo.json", "io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm"},
+				  "json:target/cucumber-reports/DS-Algo.json", "io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm"},
 		monochrome = false,
 		//tags = "@test_now",
 		features = {"src/test/resources/features"},
