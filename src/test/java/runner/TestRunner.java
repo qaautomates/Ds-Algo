@@ -5,7 +5,9 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
+import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
+
 import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
 import utilities.DriverFactory;
@@ -24,7 +26,7 @@ public class TestRunner extends AbstractTestNGCucumberTests {
 	
 	@BeforeMethod
 	@Parameters({"browser"})
-	public void defineBrowser(String browser) {
+	public void defineBrowser(@Optional String browser) {
 		logger.info("Set browser type from beforetest:" + browser);
 		DriverFactory.setBrowserName(browser);
 	}
