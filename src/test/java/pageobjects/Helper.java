@@ -79,7 +79,10 @@ public class Helper {
 
 	public void selectDropDownMenu(String string) {
 		dropdownMenu.click();
-		driver.findElement(By.linkText("" + string + "")).click();
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		wait.until(ExpectedConditions.elementToBeClickable(By.linkText("" + string + ""))).click();
+		
+		//driver.findElement(By.linkText("" + string + "")).click();
 	}
 
 	public void dataStructuresGetStarted(String module) {
